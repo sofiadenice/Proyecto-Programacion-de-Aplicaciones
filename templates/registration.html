@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
+    <!--<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">-->
+</head>
+
+<body>
+    <div class="fondo-general">
+        <br>
+        <section class="caja-body">
+            <div class="caja">
+                <div class="caja-titulo">
+                    Registro
+                </div>
+                    <!--<h2>registration form</h2>-->
+
+                <div class = "caja-campos">
+                    <div class="caja-inputs">
+                    <!-- <label for="user_reg">user</label>-->
+                        <input type="text" name="user" id="user_reg" placeholder="Usuario..." class ="caja-input">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="caja-inputs">
+                        <!--<label for="passw_reg">password</label>-->
+                        <input type="text" name="passw" id="passw_reg" placeholder="Contraseña..." class ="caja-input">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="caja-boton">
+                        <button onclick="registerNewUser()" class="caja-boton-css">Registrarme</button>
+                    </div>
+                    <div class = "caja-link">
+                        ¿Estás registrado?<br display="none">
+                        <a href="{{url_for('login')}}">Inicia sesión</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+
+</html>

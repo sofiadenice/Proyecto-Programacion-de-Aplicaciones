@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clidente | Contacto</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
+</head>
+
+<body>
+    <div class="caja-section">
+        <br>
+        <section class="caja-contacto">
+            <div class="caja-titulo">
+                ¿Tienes preguntas? Contáctanos
+            </div>
+            <div class="caja-campos">
+                <form id="form">
+                    <div class="caja-inputs">
+                        <label for="">Nombre*:</label>
+                        <input type="text" name="nombre" id="nombre" class="cajaci-input">
+                    </div>
+                    <div class="caja-inputs">
+                        <label for="">Correo*:</label>
+                        <input type="email" name="email" id="email" class="cajaci-input">
+                    </div>
+                    <div class="caja-inputs">
+                        <label for="">Teléfono de contacto*:</label>
+                        <input type="tel" name="phone" id="phone" class="cajaci-input">
+                    </div>
+                    <div class="caja-inputs">
+                        <label for="">Mensaje*:</label>
+                        <textarea name="message" id="message" class="input" rows="5" cols="33"></textarea>
+                    </div>
+                    <div class="caja-boton">
+                        <button type="button" onclick="sendMail()" class="caja-boton-css">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <br>
+        <br>
+        </section>
+</body>
+
+</html>

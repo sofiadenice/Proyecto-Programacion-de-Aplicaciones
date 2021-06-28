@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
+    <script src="/static/script.js" defer></script>
+    <title>Clidente</title>
+</head>
+
+<body>
+
+    <nav class="cabecera">
+        <div class="empresa" onclick="hideDivById('inicio')">
+            Clidente
+        </div>
+        <a href="#" class="menu-desplegable">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div name="linkers" class="nav">
+        <ul>
+            <li><a href="#" onclick="hideDivById('inicio')">Inicio</a></li>
+            <li><a href="#" onclick="hideDivById('productos');loadAddDataFromTratamientoClient()">Tratamientos</a></li>
+            <li><a href="#" onclick="hideDivById('about')">Conócenos</a></li>
+            <li><a href="{{url_for('dashboard')}}">Contacto</a></li>
+            <li><a href="{{url_for('dashboard')}}">Haz tu cita</a></li>
+            <!-- <li><a href="{{url_for('registro')}}">Mi cuenta</a></li>-->
+            <div class="container" id="login">
+                <li><a href="{{url_for('login')}}">Login</a></li>
+                <!--<li><img src="{{url_for('static', filename='images/unnamed.png')}}" width="40" height="40" alt="">-->
+                <!--<li><a onclick="logout()" href="">Logout</a></li>-->
+            </div>
+        </ul>
+        </div>
+    </nav>
+
+
+    <!--
+    <div class="main">
+    
+        <div class="main__section" id="main_section">
+            <div style="display:block" id="client" name="w3includes" w3-include-html="{{url_for('addcli')}}">
+            </div>
+            <div style="display:block" id="admin" name="w3includes" w3-include-html="{{url_for('addadm')}}">
+            </div>
+        </div>
+
+    </div>
+    -->
+
+    <div class="main">
+
+        <div style="display:block" id="inicio" name="pages" w3-include-html="{{url_for('inicio')}}"></div>
+        <div style="display:none" id="productos" name="pages" w3-include-html="{{url_for('productos')}}"></div>
+        <div style="display:none" id="about" name="pages" w3-include-html="{{url_for('about')}}"></div>
+        <div style="display:none" id="contacto" name="pages" w3-include-html="{{url_for('contacto')}}"></div>
+        <div style="display:none" id="cita" name="pages" w3-include-html="{{url_for('cita')}}"></div>
+
+
+    </div>
+
+    <!-- En caso de futuros cmbios con el apartado de registro...
+    <div>
+        <div id="registro"><a href="{{url_for('registro')}}">Registro</a></div>
+    </div>-->
+
+
+    
+<footer>
+    <div class="footer-basic">
+        <div class="footer-left">
+            <section class="footer-sections">
+                <header>Nosotros</header>
+                <a href="#" onclick="hideDivById('about')">Conócenos</a>
+                <a href="{{url_for('dashboard')}}">Contacto</a>
+                <a href="#" onclick="hideDivById('inicio')">Inicio</a>
+            </section>
+            <section class="footer-sections">
+                <header>Servicios</header>
+                <a href="#" onclick="hideDivById('productos');loadAddDataFromTratamientoClient()">Tratamientos</a>
+                <a href="{{url_for('dashboard')}}">Haz tu cita</a>
+            </section>
+            <section class="footer-sections">
+                <header>Nuestra redes</header>
+                <div class="social">
+                    <a href="https://www.facebook.com/clinicadentalclidente/"><span class="iconify" data-icon="ant-design:facebook-filled" data-inline="false"></span></a>
+                    <a href="https://www.instagram.com/clidente_sv/"><span class="iconify" data-icon="ant-design:instagram-filled" data-inline="false"></span></a>
+                    <a href="https://wa.me/+50370842286/"><span class="iconify" data-icon="fa-brands:whatsapp-square" data-inline="false"></span></a>
+                </div>
+            </section>
+        </div>
+        
+        <p class="copyright">Clidente® 2021</p>
+    </div>
+</footer>
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="/static/script.js"></script>
+    <script src="{{url_for('static', filename='pre_load.js')}}"></script>
+</body>
+
+</html>

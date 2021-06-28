@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clidente | Citas</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
+</head>
+
+<body>
+    <div class="caja-section">
+        <br>
+        <section class="caja-cita">
+            <div class="caja-titulo">
+                Reserva tu cita
+            </div>
+            <div class = "caja-campos">
+                <form id="cita">
+                    <div class="caja-inputs">
+                        <label>Fecha*:</label> 
+                        <input type="date" id="fecha" class ="cajaci-input">
+                    </div>
+                    <div class="caja-inputs">
+                        <label for="nombre">Nombre*:</label>
+                        <input type="text" name="nombre" id="name" class ="cajaci-input">
+                    </div>
+                    <div class="caja-inputs">
+                        <label for="apellido">Apellido*:</label>
+                        <input type="text" name="apellido" id="apellido" class ="cajaci-input">
+                    </div>
+                    <div class="caja-inputs">
+                        <label for="correo">Correo electrónico*:</label>
+                        <input type="text" name="correo" id="correo" class ="cajaci-input"> 
+                    </div>
+                    <div class="caja-inputs"> 
+                        <label for="telefono">Número telefónico*:</label>
+
+                        <input type="text" name="telefono" id="telefono" class ="cajaci-input">
+                    </div>
+
+                    <div class="caja-inputs">
+                        <label for="">Motivo de la cita*:</label><br>
+                        <textarea name="motivo" id="motivo" class="motivo" rows="5" cols="33"></textarea>
+                    </div>
+
+                    <div class="caja-inputs">
+                        <label for="hora">Selecciona el horario que prefieras*:</label>
+                        <select name="hora" id="hora" class ="cajaci-input">
+                            <option value="hora1">9:00 AM - 10:00 AM</option>
+                            <option value="hora2">10:00 AM - 11:00 AM</option>
+                            <option value="hora3">11:00 AM - 12:00 PM</option>
+                            <option value="hora4">1:00 PM - 2:00 PM</option>
+                            <option value="hora5">2:00 PM - 3:00 PM</option>
+                            <option value="hora6">3:00 PM - 4:00 PM</option>
+                            <option value="hora7">4:00 PM - 5:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="caja-boton">
+                        <button type="button" onclick="agregarCita()" class="caja-boton-css">Enviar</button>
+                    </div>
+                
+                    <div class="tabla tabla-citas">
+                        <div id="proximaCita" style="display:none">
+                            <div class="caja-titulo">
+                                Ha establecido su cita:
+                            </div>
+                            <table id="userTableClient" border="1" position="center">
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Motivo</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <br>
+        <br>
+    </div>
+</body>
+
+</html>

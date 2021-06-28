@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clidente | Registro</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
+    <script src="/static/script.js" defer></script>
+</head>
+
+<body>
+    <nav class="cabecera">
+        <div class="empresa">
+            <a href="{{url_for('dashboard')}}">Clidente</a>
+        </div>
+        <a href="#" class="menu-desplegable">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div name="linkers" class="nav">
+        <ul>
+            <li><a href="{{url_for('dashboard')}}">Inicio</a></li>
+            <div class="container" id="login">
+                <!--<li><a href="{{url_for('login')}}">Login</a></li>-->
+                <!--<li><img src="{{url_for('static', filename='images/unnamed.png')}}" width="40" height="40" alt="">-->
+                <li><a onclick="logout()" href="">Logout</a></li>
+            </div>
+        </ul>
+        </div>
+    </nav>
+
+    <section clas="fondo-general">
+        <div style="display: none;"><span class="saludo-user" id="user"></span></div>
+        <div class="main">
+            <div class="main__section" id="main_section">
+                <div style="display:block" id="client" name="w3includes" w3-include-html="{{url_for('addcli')}}">
+                </div>
+                <div style="display:block" id="admin" name="w3includes" w3-include-html="{{url_for('addadm')}}">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>

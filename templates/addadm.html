@@ -1,0 +1,65 @@
+
+<div class="fondo-general">
+    <br>
+    <section>
+        <div class="caja-cuenta">
+            <div class="caja-titulo">
+                Registro Administrador
+            </div>
+            <div class="tabla tabla-micuenta">
+                
+                    <table id="userTableAdmin" border="1">
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Motivo</th>
+                            <th>Hora</th>
+                        </tr>
+                    </table>
+            </div>
+        </div>
+
+        <!--Formulario para agregar tratamientos-->
+        <div class="caja-cuenta">
+            <div class = "caja-campos">
+                <div class="caja-titulo">
+                    Formulario para crear tratamientos
+                </div>
+                <form id="tratamientosForm">
+                    <div class="caja-inputs">
+                        <label>Nombre*:</label> 
+                        <input type="text" id="nombreT" class ="cajaci-input">
+                    </div>
+                    <div class="caja-inputs">
+                        <label for="nombre">Descripción*:</label>
+                        <input type="text" name="nombre" id="descripcionT" class ="cajaci-input">
+                    </div>
+                    <div class="caja-inputs">
+                        <label for="apellido">Imagen*:</label>
+                        <input type="text" name="apellido" id="imagenT" class ="cajaci-input">
+                    </div>
+                    <div class="caja-boton">
+                        <button onclick="agregarTratamiento()" class="caja-boton-css">Enviar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!--Tabla para modificar tratamients-->
+            
+            <div class="tabla tabla-micuenta">
+                <table id="tableTratamientos" border="1">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Imagen</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <br>
+</div>
