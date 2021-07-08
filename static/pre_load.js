@@ -46,8 +46,8 @@ function preLoadAddResults() {
 }
 
 function goToDashboard() {
-    window.location = "http://127.0.0.1:5000/dashboard"
-    //window.location.href = "https://proyecto-programacion-dos.herokuapp.com/dashboard";
+    //window.location = "http://127.0.0.1:5000/dashboard"
+    window.location.href = "https://proyecto-progra-2-final.herokuapp.com/dashboard";
 }
 
 preLoadUsers()
