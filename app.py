@@ -1,10 +1,7 @@
 from flask import Flask
 from routes.main_routes import MainRoutes
-
 from routes.register_routes import RegisterRoutes
-
 from routes.logprocess_routes import LogProcessRoutes
-
 from routes.dashboard_routes import DashboardRoutes
 
 app = Flask(__name__)

@@ -25,7 +25,7 @@
         <div name="linkers" class="nav">
         <ul>
             <li><a href="#" onclick="hideDivById('inicio')">Inicio</a></li>
-            <li><a href="#" onclick="hideDivById('productos');loadAddDataFromTratamientoClient()">Tratamientos</a></li>
+            <li><a href="#" onclick="hideDivById('tratamientos')">Tratamientos</a></li>
             <li><a href="#" onclick="hideDivById('about')">Conócenos</a></li>
             <li><a href="{{url_for('dashboard')}}">Contacto</a></li>
             <li><a href="{{url_for('dashboard')}}">Haz tu cita</a></li>
@@ -56,7 +56,7 @@
     <div class="main">
 
         <div style="display:block" id="inicio" name="pages" w3-include-html="{{url_for('inicio')}}"></div>
-        <div style="display:none" id="productos" name="pages" w3-include-html="{{url_for('productos')}}"></div>
+        <div style="display:none" id="tratamientos" name="pages" w3-include-html="{{url_for('tratamientos')}}"></div>
         <div style="display:none" id="about" name="pages" w3-include-html="{{url_for('about')}}"></div>
         <div style="display:none" id="contacto" name="pages" w3-include-html="{{url_for('contacto')}}"></div>
         <div style="display:none" id="cita" name="pages" w3-include-html="{{url_for('cita')}}"></div>
@@ -82,7 +82,7 @@
             </section>
             <section class="footer-sections">
                 <header>Servicios</header>
-                <a href="#" onclick="hideDivById('productos');loadAddDataFromTratamientoClient()">Tratamientos</a>
+                <a href="#" onclick="hideDivById('tratamientos')">Tratamientos</a>
                 <a href="{{url_for('dashboard')}}">Haz tu cita</a>
             </section>
             <section class="footer-sections">

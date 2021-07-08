@@ -124,6 +124,13 @@
                         <th>Descripción</th>
                         <th>Imagen</th>
                     </tr>
+                    {% for tratamiento in session["tratamientoList"] %}
+                    <tr>
+                        <td>{{ tratamiento["nombre"] }}</td>
+                        <td>{{ tratamiento["descripcion"] }}</td>
+                        <td>{{ tratamiento["imagen"] }}</td>
+                    </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>

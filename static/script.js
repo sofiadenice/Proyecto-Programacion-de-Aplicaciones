@@ -232,6 +232,7 @@ if (window.location.href.includes("registro")) {
     }
 }
 
+/*
 if (window.location.href.includes("registro")) {
     var currentLoggedUser = getCurrentLoggedUser()
     if (currentLoggedUser.role === "admin") {
@@ -247,6 +248,7 @@ if (window.location.href.includes("registro")) {
         observer.observe(elementToObserve, { subtree: true, childList: true });
     }
 }
+*/
 
 function loadAddDataFromAllUsers() {
     var addResultArray

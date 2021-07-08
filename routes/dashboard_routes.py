@@ -1,4 +1,5 @@
 from flask import render_template, redirect, request, session
+from logic.tratamiento_logic import TratamientoLogic
 import requests
 
 
@@ -18,9 +19,11 @@ class DashboardRoutes:
             return render_template("inicio.html")
 
 
-        @app.route("/productos")
-        def productos():
-            return render_template("productos.html")
+        @app.route("/tratamientos")
+        def tratamientos():
+            logic = TratamientoLogic()
+            session["tratamientoList"] = logic.selectAllTratamiento()
+            return render_template("tratamientos.html")
 
 
         @app.route("/cita")
