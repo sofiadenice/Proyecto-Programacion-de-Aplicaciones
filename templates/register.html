@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
+</head>
+
+<body>
+    <div class="fondo-general">
+        <br>
+        <section class="caja-body">
+            <div class="caja">
+                <div class="caja-titulo">
+                    Registro
+                </div>
+                <!--<h2>registration form</h2>-->
+
+
+
+
+
+                <form action="{{ url_for('register')}}" method="post" class="caja-campos">
+
+                    <div class="caja-inputs">
+                        <!-- <label for="user_reg">user</label>-->
+                        <input type="text" name="user" id="user" placeholder="Usuario..." class="caja-input">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="caja-inputs">
+                        <!--<label for="passw_reg">password</label>-->
+                        <input type="text" name="email" id="email" placeholder="Correo..." class="caja-input">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="caja-inputs">
+                        <!--<label for="passw_reg">password</label>-->
+                        <input type="text" name="password" id="password" placeholder="Contraseña..." class="caja-input">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="caja-inputs">
+                        <!--<label for="passw_reg">password</label>-->
+                        <input type="text" name="confpassword" id="confpassword" placeholder="Confirmar contraseña..."
+                            class="caja-input">
+                        <i class="fas fa-lock"></i>
+                    </div> <br>
+                    <div class="g-recaptcha" data-sitekey="6LeAdQcbAAAAAFhWhLVOYQz2RSawVM1brJY9j7ql"></div> <br>
+                    <div class="caja-boton">
+                        <input type="submit" value="Registrarme" class="caja-boton-css">
+                    </div>
+                    <div class="caja-link">
+                        ¿Estás registrado?<br display="none">
+                        <a href="{{url_for('register')}}">Inicia sesión</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+
+</html>
