@@ -1,37 +1,38 @@
 from core.pyba_logic import PybaLogic
 
 
-class UserLogic(PybaLogic):
+class TratamientoLogic(PybaLogic):
     def __init__(self):
         super().__init__()
 
-    def insertUser(self, userName, userEmail, password, salt):
+    def selectAllTratamiento(self):
+        database = self.createDatabaseObj()
+        sql = "SELECT * FROM clidente.tratamiento"
+        result = database.executeQuery(sql)
+        return result
+
+    def insertTratamiento(self, nombre, descripcion, imagen):
         database = self.createDatabaseObj()
         sql = (
-            "INSERT INTO `user` "
-            + "(`id`,`user_name`,`user_email`,`password`,`salt`) "
-            + f"VALUES(0,'{userName}','{userEmail}','{password}','{salt}');"
+            "INSERT INTO `tratamiento` "
+            + "(`id`, `nombre`, `descripcion`, `imagen`) "
+            + f"VALUES (0,'{nombre}','{descripcion}','{imagen}';"
         )
         rows = database.executeNonQueryRows(sql)
         return rows
 
-    def getUserByEmail(self, userEmail):
+    def updateTratamiento(self, id, nombre, descripcion, imagen):
         database = self.createDatabaseObj()
-        sql = (
-            "SELECT user_email, password, salt "
-            + f"FROM user where user_email like '{userEmail}';"
-        )
-        result = database.executeQuery(sql)
-        if len(result) > 0:
-            return result[0]
-        else:
-            return []
+        sql = ("UPDATE `clidente`.`cita` SET "
+            + f"`id` = {id}, "
+            + f"`nombre` = '{nombre}', "
+            + f"`descripcion` = '{descripcion}', "
+            + f"`imagen` = '{imagen}', "
+            + f"WHERE `id` = {id};")
 
-    def getRowByUser(self, user):
+    def deleteTratamineto(self, id):
         database = self.createDatabaseObj()
-        sql = f"SELECT * FROM user where user_name like '{user}';"
-        result = database.executeQuery(sql)
-        if len(result) > 0:
-            return result[0]
-        else:
-            return []
+        sql = (f"DELETE FROM `clidente`.`tratamiento` WHERE id={id};")
+        rows = database.executeNonQueryRows(sql)
+        return rows
+
