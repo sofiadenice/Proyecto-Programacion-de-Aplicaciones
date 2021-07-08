@@ -86,7 +86,7 @@ CREATE TABLE `user` (
   `user_email` varchar(50) NOT NULL,
   `password` varchar(60) NOT NULL,
   `salt` varchar(30) NOT NULL,
-  `admin` varchar(10) DEFAULT 'cliente',
+  `role` varchar(10) DEFAULT 'cliente',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -110,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-08  0:27:03
+-- Dump completed on 2021-07-08 15:06:13
