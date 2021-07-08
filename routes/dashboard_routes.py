@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, session
 import requests
 
 
@@ -7,7 +7,10 @@ class DashboardRoutes:
     def configure_routes(app):
         @app.route("/dashboard")
         def dashboard():
-            return render_template("dashboard.html")
+            if session["loggedIn"]==True:
+                return render_template("dashboard.html")
+            else:
+                return render_template("login.html")
 
         
         @app.route("/inicio")

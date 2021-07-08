@@ -132,8 +132,8 @@ function createSessionUser(user, password, role) {
 
 if (window.location.href.includes("dashboard")) {
     //un if general para el dashboard y asi podemos poner todos los metodos que necesitemos
-    checkForValidLoginSession()
-    setUserNameOnDashboard()
+    //checkForValidLoginSession()
+    //setUserNameOnDashboard()
     w3.includeHTML()
 }
 
