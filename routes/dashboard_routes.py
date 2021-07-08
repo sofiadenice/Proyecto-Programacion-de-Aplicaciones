@@ -1,23 +1,22 @@
 from flask import render_template, redirect, request, session
 from logic.tratamiento_logic import TratamientoLogic
+from logic.cita_logic import CitaLogic
 import requests
 
 
 class DashboardRoutes:
     @staticmethod
     def configure_routes(app):
-        @app.route("/dashboard")
+        @app.route("/dashboard", methods=["GET", "POST"])
         def dashboard():
-            if session["loggedIn"]==True:
+            if session["loggedIn"] is True:
                 return render_template("dashboard.html")
             else:
                 return render_template("login.html")
 
-        
         @app.route("/inicio")
         def inicio():
             return render_template("inicio.html")
-
 
         @app.route("/tratamientos")
         def tratamientos():
@@ -25,38 +24,47 @@ class DashboardRoutes:
             session["tratamientoList"] = logic.selectAllTratamiento()
             return render_template("tratamientos.html")
 
-
-        @app.route("/cita")
+        @app.route("/cita", methods=["GET", "POST"])
         def cita():
-            return render_template("cita.html")
+            if request.method == "GET":
+                return render_template("cita.html")
+            elif request.method == "POST":
+                logic = CitaLogic()
+                fecha = request.form["fecha"]
+                nombre = request.form["nombre"]
+                apellido = request.form["apellido"]
+                correo = request.form["correo"]
+                telefono = request.form["telefono"]
+                motivo = request.form["motivo"]
+                hora = request.form["hora"]
+                user = session["login_user"]
 
+                insertar = logic.insertCita(
+                    user, correo, nombre, apellido, telefono, motivo, hora
+                )
+                return redirect("cita.html")
+            else:
+                return redirect("cita.html")
 
         @app.route("/contacto")
         def contacto():
             return render_template("contacto.html")
 
-
         @app.route("/registro")
         def registro():
             return render_template("registro.html")
-
 
         @app.route("/about")
         def about():
             return render_template("about.html")
 
-
-
         @app.route("/add_cli")
         def addcli():
             return render_template("addcli.html")
 
-
         @app.route("/add_adm")
         def addadm():
             return render_template("addadm.html")
-
-
 
         @app.route("/dashboard/city/<int:id>")
         def city(id):

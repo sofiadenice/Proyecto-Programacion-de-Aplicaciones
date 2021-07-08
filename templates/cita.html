@@ -18,28 +18,28 @@
             <div class="caja-titulo">
                 Reserva tu cita
             </div>
-            <div class = "caja-campos">
-                <form id="cita">
+            <div class="caja-campos">
+                <form id="cita" method="post" action="">
                     <div class="caja-inputs">
-                        <label>Fecha*:</label> 
-                        <input type="date" id="fecha" class ="cajaci-input">
+                        <label>Fecha*:</label>
+                        <input type="date" name="fecha" id="fecha" class="cajaci-input">
                     </div>
                     <div class="caja-inputs">
                         <label for="nombre">Nombre*:</label>
-                        <input type="text" name="nombre" id="name" class ="cajaci-input">
+                        <input type="text" name="nombre" id="nombre" class="cajaci-input">
                     </div>
                     <div class="caja-inputs">
                         <label for="apellido">Apellido*:</label>
-                        <input type="text" name="apellido" id="apellido" class ="cajaci-input">
+                        <input type="text" name="apellido" id="apellido" class="cajaci-input">
                     </div>
                     <div class="caja-inputs">
                         <label for="correo">Correo electrónico*:</label>
-                        <input type="text" name="correo" id="correo" class ="cajaci-input"> 
+                        <input type="text" name="correo" id="correo" class="cajaci-input">
                     </div>
-                    <div class="caja-inputs"> 
+                    <div class="caja-inputs">
                         <label for="telefono">Número telefónico*:</label>
 
-                        <input type="text" name="telefono" id="telefono" class ="cajaci-input">
+                        <input type="text" name="telefono" id="telefono" class="cajaci-input">
                     </div>
 
                     <div class="caja-inputs">
@@ -49,20 +49,20 @@
 
                     <div class="caja-inputs">
                         <label for="hora">Selecciona el horario que prefieras*:</label>
-                        <select name="hora" id="hora" class ="cajaci-input">
-                            <option value="hora1">9:00 AM - 10:00 AM</option>
-                            <option value="hora2">10:00 AM - 11:00 AM</option>
-                            <option value="hora3">11:00 AM - 12:00 PM</option>
-                            <option value="hora4">1:00 PM - 2:00 PM</option>
-                            <option value="hora5">2:00 PM - 3:00 PM</option>
-                            <option value="hora6">3:00 PM - 4:00 PM</option>
-                            <option value="hora7">4:00 PM - 5:00 PM</option>
+                        <select name="hora" id="hora" class="cajaci-input">
+                            <option value="9:00:00">9:00 AM - 10:00 AM</option>
+                            <option value="10:00:00">10:00 AM - 11:00 AM</option>
+                            <option value="11:00:00">11:00 AM - 12:00 PM</option>
+                            <option value="13:00:00">1:00 PM - 2:00 PM</option>
+                            <option value="14:00:00">2:00 PM - 3:00 PM</option>
+                            <option value="15:00:00">3:00 PM - 4:00 PM</option>
+                            <option value="16:00:00">4:00 PM - 5:00 PM</option>
                         </select>
                     </div>
                     <div class="caja-boton">
-                        <button type="button" onclick="agregarCita()" class="caja-boton-css">Enviar</button>
+                        <input type="submit" value="Agregar cita" class="caja-boton-css">
                     </div>
-                
+
                     <div class="tabla tabla-citas">
                         <div id="proximaCita" style="display:none">
                             <div class="caja-titulo">
