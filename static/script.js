@@ -34,8 +34,8 @@ function registerNewUser() {
 
     localStorage.setItem("lUserArray", JSON.stringify(userArray));
 
-    //window.location.href = "http://127.0.0.1:5000/login"
-    window.location.href = "https://proyecto-progra-2-final.herokuapp.com/login";
+    window.location.href = "http://127.0.0.1:5000/login"
+    // window.location.href = "https://proyecto-progra-2-final.herokuapp.com/login";
 }
 
 function agregarAdmin() {
@@ -79,8 +79,8 @@ function checkLogin() {
                 //need a method to get the role and send it into createSessionUser below
                 var role = getUserRole(user, password, userArray)
                 createSessionUser(user, password, role)
-                //window.location.href = "http://127.0.0.1:5000/dashboard";
-                window.location.href = "https://proyecto-progra-2-final.herokuapp.com/dashboard";
+                window.location.href = "http://127.0.0.1:5000/dashboard";
+                //window.location.href = "https://proyecto-progra-2-final.herokuapp.com/dashboard";
             } else {
                 alert("Usuario o contraseña no son correctos");
             }
@@ -152,8 +152,8 @@ function checkForValidLoginSession() {
 
     if (sessionStorage.getItem("loggedUser") == null) {
         alert("Debe iniciar sesión para acceder a la página");
-        //window.location.href = "http://127.0.0.1:5000/login";
-        window.location.href = "https://proyecto-progra-2-final.herokuapp.com/login";
+        window.location.href = "http://127.0.0.1:5000/login";
+        //window.location.href = "https://proyecto-progra-2-final.herokuapp.com/login";
     }
 }
 
@@ -200,13 +200,13 @@ function modifyRegistroForRole(pCurrentRole) {
 
 function logout() {
     sessionStorage.removeItem("loggedUser")
-    //window.location.href = "http://127.0.0.1:5000/"
-    window.location.href = "https://proyecto-progra-2-final.herokuapp.com/";
+    window.location.href = "http://127.0.0.1:5000/"
+    //window.location.href = "https://proyecto-progra-2-final.herokuapp.com/";
 }
 
 function goToIndex() {
-    //window.location.href = "http://127.0.0.1:5000/"
-    window.location.href = "https://proyecto-progra-2-final.herokuapp.com/";
+    window.location.href = "http://127.0.0.1:5000/"
+    //window.location.href = "https://proyecto-progra-2-final.herokuapp.com/";
 }
 
 /*
