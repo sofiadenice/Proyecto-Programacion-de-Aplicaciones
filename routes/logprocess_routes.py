@@ -27,6 +27,7 @@ class LogProcessRoutes:
                         # se valido la password, se puede crear sesion y pasar al dashboard
                         session["login_user"] = username
                         session["loggedIn"] = True
+                        session["role"] = userDict["role"]
                         return redirect("dashboard")
                     else:
                         return redirect("login")
