@@ -14,7 +14,7 @@ class CitaLogic(PybaLogic):
     def insertCita(self, userName, userEmail, nombre, apellido, telefono, motivo, fecha, hora):
         database = self.createDatabaseObj()
         sql = (
-            "INSERT INTO `cita` "
+            "INSERT INTO `clidente`.`cita` "
             + "(`id`, `user`, `nombre`, `apellido`, `correo`, `telefono`, `motivo`, `fecha`, `hora`) "
             + f"VALUES (0,'{userName}','{nombre}','{apellido}','{userEmail}','{telefono}','{motivo}','{fecha}','{hora}');"
         )

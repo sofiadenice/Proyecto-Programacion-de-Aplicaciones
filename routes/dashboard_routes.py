@@ -9,10 +9,28 @@ class DashboardRoutes:
     def configure_routes(app):
         @app.route("/dashboard", methods=["GET", "POST"])
         def dashboard():
-            if session["loggedIn"] is True:
+            if request.method == "GET":
+                if session["loggedIn"] is True:
+                    return render_template("dashboard.html")
+                else:
+                    return render_template("login.html")
+            elif request.method == "POST":
+                logic = CitaLogic()
+                
+                fecha = request.form["fecha"]
+                nombre = request.form["nombre"]
+                apellido = request.form["apellido"]
+                correo = request.form["correo"]
+                telefono = request.form["telefono"]
+                motivo = request.form["motivo"]
+                hora = request.form["hora"]
+                user = session["login_user"]
+                
+                insertar = logic.insertCita(
+                    user, correo, nombre, apellido, telefono, motivo, fecha, hora
+                )
                 return render_template("dashboard.html")
-            else:
-                return render_template("login.html")
+
 
         @app.route("/inicio")
         def inicio():
@@ -38,13 +56,10 @@ class DashboardRoutes:
                 motivo = request.form["motivo"]
                 hora = request.form["hora"]
                 user = session["login_user"]
-
+                
                 insertar = logic.insertCita(
-                    user, correo, nombre, apellido, telefono, motivo, hora
+                    user, correo, nombre, apellido, telefono, motivo, fecha, hora
                 )
-                return redirect("cita.html")
-            else:
-                return redirect("cita.html")
 
         @app.route("/contacto")
         def contacto():
