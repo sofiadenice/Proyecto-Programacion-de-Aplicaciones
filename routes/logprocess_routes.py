@@ -38,3 +38,8 @@ class LogProcessRoutes:
                     return redirect("login")
 
                 return redirect("login")
+
+        @app.route("/logout")
+        def logout():
+            session["loggedIn"] = False
+            return redirect("main")

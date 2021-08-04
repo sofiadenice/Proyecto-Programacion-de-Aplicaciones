@@ -13,6 +13,21 @@
 </head>
 
 <body>
+
+    {% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+    <ul class=flashes>
+
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+
+    </ul>
+    {% endif %}
+
+    {% endwith %}
+
     <div class="fondo-general">
         <br>
         <div class="caja-body">
@@ -43,7 +58,7 @@
                         </div>
                         <br>
                         <div class="caja-boton">
-                            <button onclick="goToIndex()" class="caja-boton-css">Regresar</button>
+                            <a href="{{url_for('inicioNotLogged')}}" class="caja-boton-css">Regresar</a>
                         </div>
                     </form>
                 </div>

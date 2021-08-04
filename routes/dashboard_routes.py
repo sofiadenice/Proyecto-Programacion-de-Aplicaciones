@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request, session
+from flask import render_template, redirect, request, session, flash
 from logic.tratamiento_logic import TratamientoLogic
 from logic.cita_logic import CitaLogic
 import requests
@@ -10,34 +10,65 @@ class DashboardRoutes:
 
         @app.route("/inicio")
         def inicio():
-            url = f"{templateFolder}inicio.html"
-            return render_template(url)
+            if session.get("loggedIn") is None:
+                session["loggedIn"] = False
+            if session["loggedIn"] is True:
+                url = f"{templateFolder}inicio.html"
+                return render_template(url)
+            else:
+                flash("Debe iniciar sesión para continuar")
+                return redirect("login")
+            
 
         @app.route("/tratamientos")
         def tratamientos():
-            logic = TratamientoLogic()
-            session["tratamientoList"] = logic.selectAllTratamiento()
-            url = f"{templateFolder}tratamientos.html"
-            return render_template(url)
+            if session.get("loggedIn") is None:
+                session["loggedIn"] = False
+            if session["loggedIn"] is True:
+                logic = TratamientoLogic()
+                session["tratamientoList"] = logic.selectAllTratamiento()
+                url = f"{templateFolder}tratamientos.html"
+                return render_template(url)
+            else:
+                flash("Debe iniciar sesión para continuar")
+                return redirect("login")
+            
 
         @app.route("/about")
         def about():
-            url = f"{templateFolder}about.html"
-            return render_template(url)
+            if session.get("loggedIn") is None:
+                session["loggedIn"] = False
+            if session["loggedIn"] is True:
+                url = f"{templateFolder}about.html"
+                return render_template(url)
+            else:
+                flash("Debe iniciar sesión para continuar")
+                return redirect("login")
+            
 
         @app.route("/contacto")
         def contacto():
-            url = f"{templateFolder}contacto.html"
-            return render_template(url)
+            if session.get("loggedIn") is None:
+                session["loggedIn"] = False
+            if session["loggedIn"] is True:
+                url = f"{templateFolder}contacto.html"
+                return render_template(url)
+            else:
+                flash("Debe iniciar sesión para continuar")
+                return redirect("login")
+            
 
         @app.route("/cita", methods=["GET", "POST"])
         def cita():
+            if session.get("loggedIn") is None:
+                session["loggedIn"] = False
             if request.method == "GET":
                 if session["loggedIn"] is True:
                     url = f"{templateFolder}cita.html"
                     return render_template(url)
                 else:
-                    return render_template("login.html")
+                    flash("Debe iniciar sesión para continuar")
+                    return redirect("login")
             elif request.method == "POST":
                 logic = CitaLogic()
                 
