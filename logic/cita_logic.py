@@ -11,6 +11,12 @@ class CitaLogic(PybaLogic):
         result = database.executeQuery(sql)
         return result
 
+    def getCitaById(self, id):
+        database = self.createDatabaseObj()
+        sql = f"SELECT * FROM clidente.cita WHERE id={id}"
+        result = database.executeQuery(sql)
+        return result
+
     def insertCita(self, userName, userEmail, nombre, apellido, telefono, motivo, fecha, hora):
         database = self.createDatabaseObj()
         sql = (
@@ -34,6 +40,19 @@ class CitaLogic(PybaLogic):
             + f"`fecha` = '{fecha}', "
             + f"`hora` = '{hora}', "
             + f"WHERE `id` = {id};")
+        rows = database.executeNonQueryRows(sql)
+        return rows
+
+    def update(self, id, motivo, fecha, hora):
+        database = self.createDatabaseObj()
+        sql = ("UPDATE `clidente`.`cita` SET "
+            + f"`id` = {id}, "
+            + f"`motivo` = '{motivo}', "
+            + f"`fecha` = '{fecha}', "
+            + f"`hora` = '{hora}' "
+            + f"WHERE `id` = {id};")
+        rows = database.executeNonQueryRows(sql)
+        return rows
 
     def deleteCita(self, id):
         database = self.createDatabaseObj()

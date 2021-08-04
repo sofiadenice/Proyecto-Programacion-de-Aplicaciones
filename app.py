@@ -23,7 +23,7 @@ MainRoutes.configure_routes(app, templateFolder=mainTemplateFolder)
 RegisterRoutes.configure_routes(app)
 LogProcessRoutes.configure_routes(app)
 DashboardRoutes.configure_routes(app, templateFolder=dashboardTemplateFolder)
-#AdminRoutes.configure_routes(app, templateFolder=adminTemplateFolder)
+AdminRoutes.configure_routes(app, templateFolder=adminTemplateFolder)
 #ClientRoutes.configure_routes(app, templateFolder=clientTemplateFolder)
 
 if __name__ == "__main__":

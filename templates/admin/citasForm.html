@@ -1,0 +1,55 @@
+{% extends '/admin/base.html' %}
+
+{% if citaObj %}
+
+{% set type = 'update' %}
+{% set button = 'Update' %}
+
+{% else %}
+
+{% set type = 'new' %}
+{% set button = 'Create' %}
+
+{% endif %}
+
+{% block title %}Cita {{ type }}{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>Cita {{ type }}</h1>
+
+    <form action="{{ url_for('citasForm', type=type) }}" method="post">
+        {% if citaObj %}
+        <div class="form-group">
+            <label for="idshow">id:</label>
+            <input type="text" class="form-control" id="idshow" name="idshow" value="{{ citaObj['id'] }}" readonly>
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="description">Motivo:</label>
+            <input type="text" class="form-control" id="motivo" name="motivo"
+                placeholder="Ingresar motivo..." value="{% if citaObj %}{{ citaObj['motivo'] }}{% endif %}">
+        </div>
+
+        <div class="form-group">
+            <label for="value">Fecha:</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" placeholder="2020-01-01"
+                value="{% if citaObj %}{{ citaObj['fecha'] }}{% endif %}">
+        </div>
+
+        <div class="form-group">
+            <label for="value">Hora:</label>
+            <input type="time" class="form-control" id="hora" name="hora" placeholder="14:00:00"
+                value="{% if citaObj %}{{ citaObj['hora'] }}{% endif %}">
+        </div>
+
+
+        {% if sizeObj %}
+        <input type="hidden" name="id" id="id" value="{{ sizeObj['id'] }}">
+        {% endif %}
+
+        <input type="submit" class="btn btn-success" value="{{ button }}">
+    </form>
+</div>
+{% endblock content %}

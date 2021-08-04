@@ -1,0 +1,63 @@
+{% extends '/admin/base.html' %}
+
+{% block title %}Admin | Citas{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="container-fluid">
+        <h1>Registro de citas</h1>
+        
+    </div>
+    <div class="container-fluid pt-3">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Usuario</th>
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Motivo</th>
+                    <th>Hora</th>
+                    <th>Acciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for element in citaList %}
+                <tr>
+                    <td>{{ element["id"] }}</td>
+                    <td>{{ element["user"] }}</td>
+                    <td>{{ element["nombre"] }}</td>
+                    <td>{{ element["apellido"] }}</td>
+                    <td>{{ element["correo"] }}</td>
+                    <td>{{ element["telefono"] }}</td>
+                    <td>{{ element["motivo"] }}</td>
+                    <td>{{ element["fecha"] }}</td>
+                    <td>{{ element["hora"] }}</td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <a class="btn btn-success"
+                                    href="{{ url_for('citasForm', type='update') }}&id={{ element['id'] }}">update</a>
+                            </div>
+                            <div class="col-sm-2">
+                                <form action="{{ url_for('citasDELETE') }}" method="post">
+                                    <input type="hidden" name="id" id="id" value="{{ element['id'] }}">
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}
+
