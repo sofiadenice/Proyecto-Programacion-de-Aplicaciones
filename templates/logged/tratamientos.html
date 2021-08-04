@@ -1,0 +1,133 @@
+{% extends '/logged/base.html' %}
+
+{% block title %}Clidente | Tratamientos{% endblock title %}
+
+{% block content %}
+
+    <div class="product">
+        <div class="product-tratamientos">
+            <div class="title-heading">
+                <div class="container-h1"><h1>Tratamientos</h1></div>
+                <p>A continuación, te mostramos algunos de los tratamientos que realizamos en Clidente.</p>
+            </div>
+
+            <section class="tratamiento-right">
+                <div class="tratamiento-description right">
+                    <div class="container-h2"><h2>Blanqueamiento dental</h2></div>
+                    <p>
+                    El blanqueamiento dental es un tratamiento dental estético 
+                    (Odontología estética o cosmética) revolucionario (tanto por 
+                    su demanda enorme como en cuanto ha supuesto un paso enorme 
+                    en el mundo de la estética dental) que logra reducir varios 
+                    tonos el color original de las piezas dentales, dejando los 
+                    dientes más blancos y brillantes.
+                    </p>
+                </div>
+                <div class="tratamiento-img right">
+                    <img src="/static/images/Blanqueamieto.jpg" alt="Blanqueamiento"/>
+                </div>
+            </section>
+
+
+            <section class="tratamiento-left">
+                <div class="tratamiento-description left">
+                    <div class="container-h2"><h2>Ortodoncia</h2></div>
+                    <p>
+                    La ortodoncia es un tratamiento cada vez más utilizado entre los 
+                    jóvenes y adultos, puesto que permite lucir una sonrisa espléndida, 
+                    natural y su resultado en la estética dental está prácticamente 
+                    garantizado.
+                    </p>
+                </div>
+                <div class="tratamiento-img left">
+                    <img src="/static/images/Ortodoncia.jpg" alt="Ortodoncia"/>
+                </div>
+            </section>
+
+
+            <section class="tratamiento-right">
+                <div class="tratamiento-description right">
+                    <div class="container-h2"><h2>Endodoncia</h2></div>
+                    <p>
+                    Consiste en la extracción de la pulpa del diente, un tejido pequeño 
+                    en forma de hebra que se encuentra en el centro del conducto del diente. 
+                    Una vez que la pulpa muerta se enferma o es dañada, se extrae; el 
+                    espacio que queda se limpia, se vuelve a dar forma y se rellena. Este 
+                    procedimiento sella el conducto radicular.
+                    </p>
+                </div>
+                <div class="tratamiento-img right">
+                    <img src="/static/images/Endodoncia.jpg" alt="Endodoncia"/>
+                </div>
+            </section>
+
+
+            <section class="tratamiento-left">
+                <div class="tratamiento-description left">
+                    <div class="container-h2"><h2>Extracción de cordales</h2></div>
+                    <p>
+                    Cuando el espacio no es suficiente, obstruye la posición de las 
+                    muelas y causa dolor incluso de oído y cabeza. Es necesario quitar 
+                    la cordal o 3ª Molar.
+                    </p>
+                </div>
+                <div class="tratamiento-img left">
+                    <img src="/static/images/Extracciones.jpg" alt="Extracciones"/>
+                </div>
+            </section>
+
+            
+            <section class="tratamiento-right">
+                <div class="tratamiento-description right">
+                    <div class="container-h2"><h2>Extracción tradicional</h2></div>
+                    <p>
+                    Cuando ya no es posible reconstruir una pieza, es necesario extraerla 
+                    y reponerla al menor tiempo posible.
+                    </p>
+                </div>
+                <div class="tratamiento-img right">
+                    <img src="/static/images/Extracciones.jpg" alt="Extracciones"/>
+                </div>
+            </section>
+
+
+            <section class="tratamiento-left">
+                <div class="tratamiento-description left">
+                    <div class="container-h2"><h2>Limpieza Ultrasónica</h2></div>
+                    <p>
+                    Es recomendable visitar a tu dentista una vez al año por lo menos, 
+                    para que resultes tener tus dientes hasta una edad adulta. Sin dolor 
+                    y de una manera más segura.
+                    </p>
+                </div>
+                <div class="tratamiento-img left">
+                    <img src="/static/images/Limpieza_Ultrasónica.jpg" alt="Limpieza">
+                </div>
+            </section>
+        </div>
+        
+        <!--Esta es la tabla para agregar tratamientos-->
+        <div class="tratamientos-extras">
+            <div class="extras-text">
+                <h1>Otros tratamientos</h1>
+            </div>
+            <div class="tabla tabla-tratamientos">
+                <table id="tableTratamientos" border="1">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Imagen</th>
+                    </tr>
+                    {% for tratamiento in session["tratamientoList"] %}
+                    <tr>
+                        <td>{{ tratamiento["nombre"] }}</td>
+                        <td>{{ tratamiento["descripcion"] }}</td>
+                        <td>{{ tratamiento["imagen"] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

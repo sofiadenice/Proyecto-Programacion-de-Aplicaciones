@@ -30,7 +30,7 @@ class LogProcessRoutes:
                         session["id"] = userDict["id"]
                         session["role"] = userDict["role"]
                         session["email"] = userDict["user_email"]
-                        return redirect("dashboard")
+                        return redirect("inicio")
                     else:
                         return redirect("login")
                 else:

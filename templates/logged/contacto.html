@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends '/logged/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clidente | Contacto</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
-</head>
+{% block title %}Clidente | Contacto{% endblock title %}
 
-<body>
+{% block content %}
+
     <div class="caja-section">
         <br>
         <section class="caja-contacto">
@@ -45,6 +37,5 @@
         <br>
         <br>
         </section>
-</body>
 
-</html>
+{% endblock content %}

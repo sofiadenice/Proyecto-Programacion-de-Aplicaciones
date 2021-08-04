@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% block customCss %}{% endblock customCss %}
+
+    <script src="/static/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/c143000470.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:24px 0;">
+        <a class="navbar-brand" href="javascript:void(0)">Clidente</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navb">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('inicioNotLogged') }}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('tratamientosNL') }}">Tratamientos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('aboutNL') }}">Conócenos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Haz tu cita</a>
+                </li>
+                <div class="container" id="login">
+                    <li><a href="{{url_for('login')}}">Login</a></li>
+                </div>
+            </ul>
+        </div>
+    </nav>
+    
+    {% block content %}{% endblock content %}
+
+    <footer>
+        <div class="footer-basic">
+            <div class="footer-left">
+                <section class="footer-sections">
+                    <header>Nosotros</header>
+                    <a href="{{url_for('aboutNL')}}">Conócenos</a>
+                    <a href="{{url_for('login')}}">Contacto</a>
+                    <a href="{{url_for('inicioNotLogged')}}">Inicio</a>
+                </section>
+                <section class="footer-sections">
+                    <header>Servicios</header>
+                    <a href="{{url_for('tratamientosNL')}}">Tratamientos</a>
+                    <a href="{{url_for('login')}}">Haz tu cita</a>
+                </section>
+                <section class="footer-sections">
+                    <header>Nuestra redes</header>
+                    <div class="social">
+                        <a href="https://www.facebook.com/clinicadentalclidente/"><span class="iconify" data-icon="ant-design:facebook-filled" data-inline="false"></span></a>
+                        <a href="https://www.instagram.com/clidente_sv/"><span class="iconify" data-icon="ant-design:instagram-filled" data-inline="false"></span></a>
+                        <a href="https://wa.me/+50370842286/"><span class="iconify" data-icon="fa-brands:whatsapp-square" data-inline="false"></span></a>
+                    </div>
+                </section>
+            </div>
+            
+            <p class="copyright">Clidente® 2021</p>
+        </div>
+    </footer>
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="/static/script.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% block customScripts %}{% endblock customScripts %}
+</body>
+
+</html>

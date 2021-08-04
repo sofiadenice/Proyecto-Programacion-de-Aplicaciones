@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends '/notLogged/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
-    <title>Inicio</title>
-</head>
+{% block title %}Inicio{% endblock title %}
 
+{% block content %}
 
-<body>
     <div class="inicio">
         <div class="main-picture" id="main-picture">
             <img src="/static/images/main1.jpg" alt="Dientes sanos">
@@ -34,19 +26,6 @@
                 </div>
             </section>
 
-            <!--
-            <div class="inicio-promos-secciones">
-                <section class="promociones" id="promociones">
-                    <img src="/static/images/promo1.jpg" alt="Promoción 2x1">
-                </section>
-                <section class="facebook-plugin" id="facebook-plugin">
-                    <p>También puedes visitar nuestra página de facebook para estar enterado de todas nuestras promociones y más</p>
-                    <iframe
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fclinicadentalclidente%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId">
-                    </iframe>
-                </section>
-            </div>
-            -->
         </div>
     <div class="location-plugin" id="location-plugin">
         <div class="location-plugin-text">
@@ -61,11 +40,6 @@
             </iframe>
         </div>
     </div>
+    <br><br><br><br><br><br>
 
-    <!-- 
-    
-    -->
-</body>
-
-
-</html>
+{% endblock content %}
