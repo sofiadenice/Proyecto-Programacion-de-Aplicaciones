@@ -1,0 +1,79 @@
+{% extends '/admin/base.html' %}
+
+{% if addAdminObj %}
+
+{% set type = 'update' %}
+{% set button = 'Update' %}
+
+{% else %}
+
+{% set type = 'new' %}
+{% set button = 'Create' %}
+
+{% endif %}
+
+{% block title %}addAdmin{{ type }}{% endblock title %}
+
+{% block content %}
+
+
+
+{% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+    <ul class=flashes>
+
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+
+    </ul>
+    {% endif %}
+
+    {% endwith %}
+
+
+<div class="container">
+    <h1>addAdmin {{ type }}</h1>
+
+    <form action="{{ url_for('addAdminForm', type=type) }}" method="post">
+        {% if addAdminObj %}
+        <div class="form-group">
+            <label for="idshow">id:</label>
+            <input type="text" class="form-control" id="idshow" name="idshow" value="{{ addAdminObj ['id'] }}" readonly>
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="description">Nombre de Usuario</label>
+            <input type="text" class="form-control" id="user_name" name="user_name"
+                placeholder="Ingresar el usuario" value= {% if addAdminObj %}{{ addAdminObj['user_name'] }} readonly  {% endif %} >
+        </div>
+
+        <div class="form-group">
+            <label for="value">Correo</label>
+            <input type="text" class="form-control" id="user_email" name="user_email" placeholder="Ingresa el correo"
+                value="{% if addAdminObj %}{{ addAdminObj['user_email'] }}{% endif %}" >
+        </div>
+
+        <div class="form-group">
+            <label for="value">Contraseña:</label>
+            <input type="text" class="form-control" id="password" name="password" placeholder="Ingrese la contraseña"
+                value="{% if addAdminObj %}{{ addAdminObj['password'] }}{% endif %}">
+        </div>
+        
+        <div class="form-group">
+            <label for="value">Verificar tu contraseña:</label>
+            <input type="text" class="form-control" id="confpassword" name="confpassword" placeholder="Ingrese la verificacion de contraseña"
+                value="{% if addAdminObj %}{{ addAdminObj['salt'] }}{% endif %}">
+        </div>
+
+
+        {% if addAdminObj %}
+        <input type="hidden" name="idshow" id="idshow" value="{{ addAdminObj['id'] }}">
+        {% endif %}
+
+        <input type="submit" class="btn btn-success" value="{{ button }}">
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends '/admin/base.html' %}
+
+{% block title %}Admin | Tratamiento{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="container-fluid">
+        <h1>Registro de Tratamientos</h1>
+        
+    </div>
+    <div class="container-fluid pt-3">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for element in tratamientoList %}
+                <tr>
+                    <td>{{ element["id"] }}</td>
+                    <td>{{ element["nombre"] }}</td>
+                    <td>{{ element["descripcion"] }}</td>
+                    <td>{{ element["imagen"] }}</td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <a class="btn btn-success"
+                                    href="{{ url_for('tratamientosForm', type='update') }}&id={{ element['id'] }}">update</a>
+                            </div>
+                            <div class="col-sm-2">
+                                <form action="{{ url_for('tratamientosDELETE') }}" method="post">
+                                    <input type="hidden" name="id" id="id" value="{{ element['id'] }}">
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}
+

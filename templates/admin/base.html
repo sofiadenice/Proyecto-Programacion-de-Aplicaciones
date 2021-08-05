@@ -30,13 +30,16 @@
                     <a class="nav-link" href="{{ url_for('citasCRUD') }}">Citas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('modTratamientos') }}">Tratamientos</a>
+                    <a class="nav-link" href="{{ url_for('tratamientosCRUD') }}">Tratamientos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('addTratamientos') }}">Agregar tratamientos</a>
+                    <a class="nav-link" href="{{ url_for('tratamientosForm') }}">Agregar tratamientos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('addAdmin') }}">Agregar administrador</a>
+                    <a class="nav-link" href="{{ url_for('addAdminCRUD') }}">Gestionar administradores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('addAdminForm') }}">Agregar administrador</a>
                 </li>
                 <div class="container" id="login">
                     <li><a href="{{url_for('logout')}}">Log out</a></li>

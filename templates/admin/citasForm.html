@@ -22,7 +22,7 @@
         {% if citaObj %}
         <div class="form-group">
             <label for="idshow">id:</label>
-            <input type="text" class="form-control" id="idshow" name="idshow" value="{{ citaObj['id'] }}" readonly>
+            <input type="text" class="form-control" id="idshow" name="idshow" value="{{ citaObj ['id'] }}" readonly>
         </div>
         {% endif %}
 
@@ -45,8 +45,8 @@
         </div>
 
 
-        {% if sizeObj %}
-        <input type="hidden" name="id" id="id" value="{{ sizeObj['id'] }}">
+        {% if citaObj %}
+        <input type="hidden" name="id" id="id" value="{{ citaObj['id'] }}">
         {% endif %}
 
         <input type="submit" class="btn btn-success" value="{{ button }}">

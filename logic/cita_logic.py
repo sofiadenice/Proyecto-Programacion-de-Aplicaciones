@@ -13,9 +13,12 @@ class CitaLogic(PybaLogic):
 
     def getCitaById(self, id):
         database = self.createDatabaseObj()
-        sql = f"SELECT * FROM clidente.cita WHERE id={id}"
+        sql = f"SELECT * FROM clidente.cita WHERE id={id};"
         result = database.executeQuery(sql)
-        return result
+        if len(result) != 0:
+            return result[0]
+        else:
+            return []
 
     def insertCita(self, userName, userEmail, nombre, apellido, telefono, motivo, fecha, hora):
         database = self.createDatabaseObj()
