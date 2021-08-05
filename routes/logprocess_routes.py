@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, session
 from logic.user_logic import UserLogic
+from logic.cita_logic import CitaLogic
 import bcrypt
 
 
@@ -43,3 +44,5 @@ class LogProcessRoutes:
         def logout():
             session["loggedIn"] = False
             return redirect("main")
+
+

@@ -19,6 +19,20 @@ class CitaLogic(PybaLogic):
             return result[0]
         else:
             return []
+    
+    def getCitaByUser(self, user):
+        database = self.createDatabaseObj()
+        sql = f"SELECT * FROM clidente.cita WHERE user='{user}';"
+        result = database.executeQuery(sql)
+        if len(result) != 0:
+            return result
+        else:
+            return []
+
+
+
+
+
 
     def insertCita(self, userName, userEmail, nombre, apellido, telefono, motivo, fecha, hora):
         database = self.createDatabaseObj()
@@ -62,3 +76,5 @@ class CitaLogic(PybaLogic):
         sql = (f"DELETE FROM `clidente`.`cita` WHERE id={id};")
         rows = database.executeNonQueryRows(sql)
         return rows
+
+    

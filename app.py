@@ -9,7 +9,7 @@ from datetime import timedelta
 
 app = Flask(__name__)
 app.secret_key = "Bal1s2e3c4r5e6t7k8e9y0+"
-app.permanent_session_lifetime = timedelta(minutes=5)
+app.permanent_session_lifetime = timedelta(minutes=15)
 
 
 mainTemplateFolder = "/notLogged/"

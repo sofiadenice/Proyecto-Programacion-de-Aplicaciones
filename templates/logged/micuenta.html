@@ -1,0 +1,47 @@
+{% extends '/logged/base.html' %}
+
+{% block title %}logged | Mi cuenta{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="container-fluid">
+        <h1>Registro de citas personales</h1>
+        
+    </div>
+    <div class="container-fluid pt-3">
+        <table class="table table-dark table-hover">
+            <tr>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                <th>Motivo</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                
+            </tr>
+        
+            {% for element in citaObj1 %}
+            <tr>
+                <td>{{ element["user"] }}</td>
+                <td>{{ element["nombre"] }}</td>
+                <td>{{ element["apellido"] }}</td>
+                <td>{{ element["correo"] }}</td>
+                <td>{{ element["telefono"] }}</td>
+                <td>{{ element["motivo"] }}</td>
+                <td>{{ element["fecha"] }}</td>
+                <td>{{ element["hora"] }}</td>
+
+                
+                
+            </tr>
+            {% endfor %}
+    
+        </table>
+    </div>
+</div>
+
+{% endblock content %}
+

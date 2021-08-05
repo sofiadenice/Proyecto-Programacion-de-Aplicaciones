@@ -1,6 +1,7 @@
 from flask import render_template, redirect, request, session, flash
 from logic.tratamiento_logic import TratamientoLogic
 from logic.cita_logic import CitaLogic
+from datetime import timedelta
 import requests
 
 
@@ -84,4 +85,15 @@ class DashboardRoutes:
                 insertar = logic.insertCita(
                     user, correo, nombre, apellido, telefono, motivo, fecha, hora
                 )
-                return render_template("dashboard.html")
+                
+                return redirect("micuenta")
+
+        @app.route("/micuenta")
+        def micuenta():
+            logic = CitaLogic()
+            user = session["login_user"]
+            currentCita1 = logic.getCitaByUser(user)
+            print(currentCita1)
+            url = f"{templateFolder}micuenta.html"
+            return render_template(url, citaObj1 = currentCita1)
+            

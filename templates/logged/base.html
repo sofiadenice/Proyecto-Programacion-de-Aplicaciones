@@ -19,7 +19,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:24px 0;">
-        <a class="navbar-brand" href="javascript:void(0)">Clidente</a>
+        <a class="navbar-brand" href="{{ url_for('inicio') }}">Clidente</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,6 +40,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('cita') }}">Haz tu cita</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('micuenta') }}">Mi cuenta</a>
                 </li>
                 <div class="container" id="login">
                     <li><a href="{{url_for('logout')}}">Log out</a></li>
