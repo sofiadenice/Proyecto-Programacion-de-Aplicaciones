@@ -1,0 +1,31 @@
+{% extends '/admin/base.html' %}
+
+{% block title %}Proveedores{% endblock title %}
+
+{% block content %}
+
+<h1>Catálogo de proveedores</h1>
+<table border="1">
+    <tr>
+        <th>Producto</th>
+        <th>Descripción</th>
+        <th>Marca</th>
+        <th>Distribuidor</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Imagen</th>
+    </tr>
+    {% for proveedor in proveedorList %}
+    <tr>
+        <td>{{ proveedor["nombreProducto"] }}</td>
+        <td>{{ proveedor["descripcion"] }}</td>
+        <td>{{ proveedor["marca"] }}</td>
+        <td>{{ proveedor["empresa"] }}</td>
+        <td>$ {{ proveedor["precio"] }}.00</td>
+        <td>{{ proveedor["stock"] }}</td>
+        <td><img src={{ proveedor["urlreference"]}}> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

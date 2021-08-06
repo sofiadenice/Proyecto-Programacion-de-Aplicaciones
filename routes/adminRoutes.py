@@ -10,8 +10,8 @@ import bcrypt
 class AdminRoutes:
     @staticmethod
     def configure_routes(app, templateFolder=""):
-        @app.route("/inventario")
-        def inventario():
+        @app.route("/proveedor")
+        def proveedor():
             if session.get("loggedIn") is None:
                 session["loggedIn"] = False
             if session["loggedIn"] is True:
@@ -19,8 +19,8 @@ class AdminRoutes:
                 response = requests.get(url)
                 if response.status_code == 200:
                     dataJson = response.json()
-                    url1 = f"{templateFolder}inventario.html"
-                    return render_template(url1, inventarioList=dataJson)
+                    url1 = f"{templateFolder}proveedor.html"
+                    return render_template(url1, proveedorList=dataJson)
             else:
                 flash("Debe iniciar sesión para continuar")
                 return redirect("login")
