@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, session
+from flask import render_template, request, redirect, session, flash
 from logic.user_logic import UserLogic
 from logic.cita_logic import CitaLogic
 import bcrypt
@@ -33,9 +33,11 @@ class LogProcessRoutes:
                         session["email"] = userDict["user_email"]
                         return redirect("inicio")
                     else:
+                        flash("Su contraseña es incorrecta")
                         return redirect("login")
                 else:
                     # user no existe
+                    flash("Su usuario es incorrecto")
                     return redirect("login")
 
                 return redirect("login")
