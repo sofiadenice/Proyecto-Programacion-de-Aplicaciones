@@ -98,8 +98,9 @@
                 <label for="value">Ingrese el nombre que aparece en la tarjeta de crédito:</label>
                 <input type="text" class="form-control" id="titular" name="titular" placeholder="Ingrese el nombre que aparece en la tarjeta de crédito">
             </div>
-
-            <input type="submit" class="btn btn-success" value="{{ button }}">
+            
+            <a class="btn btn-danger" href={{ url_for('cita') }}>Cancelar</a>
+            <input type="submit" class="btn btn-success" value="Procesar el pago">
         </form>
     </div>
 </body>

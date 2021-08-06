@@ -144,11 +144,50 @@ class DashboardRoutes:
                         flash("Cita agendada correctamente")
                         url = f"{templateFolder}cita.html"
                         return render_template(url)
-                    else:
-                        flash("No se ha podido agendar la cita correctamente")
+                    elif dataJson['response'] == '05':
+                        flash("Error de código de seguridad")
                         url = f"{templateFolder}cita.html"
                         return render_template(url)
-
+                    elif dataJson['response'] == '07':
+                        flash("Error de fecha de vencimiento")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+                    elif dataJson['response'] == '08':
+                        flash("Error de nombre de titular")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+                    elif dataJson['response'] == '14':
+                        flash("Error en el número de la tarjeta")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+                    elif dataJson['response'] == '41':
+                        flash("Tarjeta está reportada como perdida")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+                    elif dataJson['response'] == '43':
+                        flash("Tarjeta está reportada como robada")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+                    elif dataJson['response'] == '51':
+                        flash("Saldo insuficiente")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+                    elif dataJson['response'] == '54':
+                        flash("Tarjeta está inactiva")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+                    elif dataJson['response'] == '61':
+                        flash("Excede el límite de la tarjeta")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+                    elif dataJson['response'] == 'QY':
+                        flash("Tipo de tarjeta inválido")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+                    else:
+                        flash("La cita no pudo ser agendada")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
 
         @app.route("/micuenta")
         def micuenta():
