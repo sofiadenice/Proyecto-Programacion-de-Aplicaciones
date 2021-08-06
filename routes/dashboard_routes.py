@@ -92,11 +92,63 @@ class DashboardRoutes:
                 hora = request.form["hora"]
                 user = session["login_user"]
 
-                insertar = logic.insertCita(
-                    user, correo, nombre, apellido, telefono, motivo, fecha, hora
-                )
+                citaDic = {"user":user, "correo":correo, "nombre":nombre, "apellido":apellido, "telefono":telefono, "motivo":motivo, "fecha":fecha, "hora":hora}
 
-                return redirect("micuenta")
+                return render_template("pago", citaDic=citaDic)
+        
+        @app.route("/pago", methods=["GET", "POST"])
+        def pago():
+            if session.get("loggedIn") is None:
+                session["loggedIn"] = False
+            if request.method == "GET":
+                if session["loggedIn"] is True:
+                    url = f"{templateFolder}pago.html"
+                    return render_template(url)
+                else:
+                    flash("Debe iniciar sesión para continuar")
+                    return redirect("login")
+            elif request.method == "POST":
+                tarjeta = request.form["tarjeta"]
+                codigo = request.form["codigo"]
+                vencimiento = request.form["vencimiento"]
+                titular = request.form["titular"]
+                fecha = request.form["fecha"]
+                nombre = request.form["nombre"]
+                apellido = request.form["apellido"]
+                correo = request.form["correo"]
+                telefono = request.form["telefono"]
+                motivo = request.form["motivo"]
+                hora = request.form["hora"]
+                user = request.form["user"]
+
+                restapi     = "https://credit-card-auth-api-cerberus.herokuapp.com"
+                endpoint    = "/verify"
+
+                url = f"{restapi}{endpoint}"
+
+                data = {
+                    "name": titular,
+                    "number": tarjeta,
+                    "date": vencimiento,
+                    "code": codigo,
+                    "balance": 10 # el valor de la transaccion
+                }
+
+                response = requests.post(url, data=data)
+                print(response)
+                if response.status_code == 200:
+                    dataJson = response.json()
+                    if dataJson['response'] == '00':
+                        logic = CitaLogic()
+                        insertar = logic.insertCita(user, correo, nombre, apellido, telefono, motivo, fecha, hora)
+                        flash("Cita agendada correctamente")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+                    else:
+                        flash("No se ha podido agendar la cita correctamente")
+                        url = f"{templateFolder}cita.html"
+                        return render_template(url)
+
 
         @app.route("/micuenta")
         def micuenta():
