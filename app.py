@@ -4,7 +4,6 @@ from routes.register_routes import RegisterRoutes
 from routes.logprocess_routes import LogProcessRoutes
 from routes.dashboard_routes import DashboardRoutes
 from routes.adminRoutes import AdminRoutes
-from routes.clientRoutes import ClientRoutes
 from datetime import timedelta
 
 app = Flask(__name__)
