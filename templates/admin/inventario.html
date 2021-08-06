@@ -1,0 +1,31 @@
+{% extends '/admin/base.html' %}
+
+{% block title %}Productos{% endblock title %}
+
+{% block content %}
+
+<h1>Productos disponibles</h1>
+<table border="1">
+    <tr>
+        <th>Producto</th>
+        <th>Descripción</th>
+        <th>Marca</th>
+        <th>Distribuidor</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Imagen</th>
+    </tr>
+    {% for inventario in inventarioList %}
+    <tr>
+        <td>{{ inventario["nombreProducto"] }}</td>
+        <td>{{ inventario["descripcion"] }}</td>
+        <td>{{ inventario["marca"] }}</td>
+        <td>{{ inventario["empresa"] }}</td>
+        <td>$ {{ inventario["precio"] }}.00</td>
+        <td>{{ inventario["stock"] }}</td>
+        <td><img src={{ inventario["urlreference"]}}> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

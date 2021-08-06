@@ -1,0 +1,29 @@
+{% extends '/logged/base.html' %}
+
+{% block title %}Productos{% endblock title %}
+
+{% block content %}
+
+<h1>Productos disponibles</h1>
+<table border="1">
+    <tr>
+        <th>Producto</th>
+        <th>Descripción</th>
+        <th>Marca</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Imagen</th>
+    </tr>
+    {% for product in productList %}
+    <tr>
+        <td>{{ product["nombreProducto"] }}</td>
+        <td>{{ product["descripcion"] }}</td>
+        <td>{{ product["marca"] }}</td>
+        <td>$ {{ product["precio"] }}.00</td>
+        <td>{{ product["stock"] }}</td>
+        <td><img src={{ product["urlreference"]}}> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

@@ -8,6 +8,20 @@ import requests
 class DashboardRoutes:
     @staticmethod
     def configure_routes(app, templateFolder=""):
+        @app.route("/productos")
+        def productos():
+            if session.get("loggedIn") is None:
+                session["loggedIn"] = False
+            if session["loggedIn"] is True:
+                url = "https://apicarbonohelio.herokuapp.com/local/0"
+                response = requests.get(url)
+                if response.status_code == 200:
+                    dataJson = response.json()
+                    url1 = f"{templateFolder}productos.html"
+                    return render_template(url1, productList=dataJson)
+            else:
+                flash("Debe iniciar sesión para continuar")
+                return redirect("login")
 
         @app.route("/inicio")
         def inicio():
@@ -19,7 +33,6 @@ class DashboardRoutes:
             else:
                 flash("Debe iniciar sesión para continuar")
                 return redirect("login")
-            
 
         @app.route("/tratamientos")
         def tratamientos():
@@ -33,7 +46,6 @@ class DashboardRoutes:
             else:
                 flash("Debe iniciar sesión para continuar")
                 return redirect("login")
-            
 
         @app.route("/about")
         def about():
@@ -45,7 +57,6 @@ class DashboardRoutes:
             else:
                 flash("Debe iniciar sesión para continuar")
                 return redirect("login")
-            
 
         @app.route("/contacto")
         def contacto():
@@ -57,7 +68,6 @@ class DashboardRoutes:
             else:
                 flash("Debe iniciar sesión para continuar")
                 return redirect("login")
-            
 
         @app.route("/cita", methods=["GET", "POST"])
         def cita():
@@ -72,7 +82,7 @@ class DashboardRoutes:
                     return redirect("login")
             elif request.method == "POST":
                 logic = CitaLogic()
-                
+
                 fecha = request.form["fecha"]
                 nombre = request.form["nombre"]
                 apellido = request.form["apellido"]
@@ -81,11 +91,11 @@ class DashboardRoutes:
                 motivo = request.form["motivo"]
                 hora = request.form["hora"]
                 user = session["login_user"]
-                
+
                 insertar = logic.insertCita(
                     user, correo, nombre, apellido, telefono, motivo, fecha, hora
                 )
-                
+
                 return redirect("micuenta")
 
         @app.route("/micuenta")
@@ -95,5 +105,4 @@ class DashboardRoutes:
             currentCita1 = logic.getCitaByUser(user)
             print(currentCita1)
             url = f"{templateFolder}micuenta.html"
-            return render_template(url, citaObj1 = currentCita1)
-            
+            return render_template(url, citaObj1=currentCita1)

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
-    
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/static/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
@@ -41,13 +41,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('addAdminForm') }}">Agregar administrador</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('inventario') }}">Ver inventario</a>
+                </li>
                 <div class="container" id="login">
                     <li><a href="{{url_for('logout')}}">Log out</a></li>
                 </div>
             </ul>
         </div>
     </nav>
-    
+
     {% block content %}{% endblock content %}
 
     <footer>
@@ -67,13 +70,16 @@
                 <section class="footer-sections">
                     <header>Nuestra redes</header>
                     <div class="social">
-                        <a href="https://www.facebook.com/clinicadentalclidente/"><span class="iconify" data-icon="ant-design:facebook-filled" data-inline="false"></span></a>
-                        <a href="https://www.instagram.com/clidente_sv/"><span class="iconify" data-icon="ant-design:instagram-filled" data-inline="false"></span></a>
-                        <a href="https://wa.me/+50370842286/"><span class="iconify" data-icon="fa-brands:whatsapp-square" data-inline="false"></span></a>
+                        <a href="https://www.facebook.com/clinicadentalclidente/"><span class="iconify"
+                                data-icon="ant-design:facebook-filled" data-inline="false"></span></a>
+                        <a href="https://www.instagram.com/clidente_sv/"><span class="iconify"
+                                data-icon="ant-design:instagram-filled" data-inline="false"></span></a>
+                        <a href="https://wa.me/+50370842286/"><span class="iconify"
+                                data-icon="fa-brands:whatsapp-square" data-inline="false"></span></a>
                     </div>
                 </section>
             </div>
-            
+
             <p class="copyright">Clidente® 2021</p>
         </div>
     </footer>
