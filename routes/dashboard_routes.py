@@ -93,8 +93,8 @@ class DashboardRoutes:
                 user = session["login_user"]
 
                 citaDic = {"user":user, "correo":correo, "nombre":nombre, "apellido":apellido, "telefono":telefono, "motivo":motivo, "fecha":fecha, "hora":hora}
-
-                return render_template("pago", citaDic=citaDic)
+                url2 = f"{templateFolder}pago.html"
+                return render_template(url2, citaDic=citaDic)
         
         @app.route("/pago", methods=["GET", "POST"])
         def pago():

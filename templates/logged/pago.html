@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clidente | Pago</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="/static/script.js" defer></script>
 </head>
 
@@ -20,20 +22,20 @@
         </a>
         <div name="linkers" class="nav">
         <ul>
-            <li><a href="{{url_for('dashboard')}}">Inicio</a></li>
+            
             <div class="container" id="login">
                 <!--<li><a href="{{url_for('login')}}">Login</a></li>-->
                 <!--<li><img src="{{url_for('static', filename='images/unnamed.png')}}" width="40" height="40" alt="">-->
-                <li><a onclick="logout()" href="">Logout</a></li>
+                
             </div>
         </ul>
         </div>
     </nav>
 
     <div class="container">
-        <h1>addAdmin {{ type }}</h1>
+        <h1>Información de pago</h1>
 
-        <form action="{{ url_for('addAdminForm', type=type) }}" method="post">
+        <form action="{{ url_for('pago', type=type) }}" method="post">
 
             <h2>Información sobre su cita</h2>
             <div class="form-group">
