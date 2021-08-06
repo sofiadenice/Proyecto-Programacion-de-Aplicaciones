@@ -44,9 +44,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('micuenta') }}">Mi cuenta</a>
                 </li>
+                {% if session["role"] == "admin" %}
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('citasCRUD') }}">Administración</a>
+                </li>
+
+                {% endif %}
+            
                 <div class="container" id="login">
                     <li><a href="{{url_for('logout')}}">Log out</a></li>
                 </div>
+                <li class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <li class="navbar-brand">Bienvenido, {{session["login_user"]}}</li>
+                </li>
+                
             </ul>
         </div>
     </nav>
