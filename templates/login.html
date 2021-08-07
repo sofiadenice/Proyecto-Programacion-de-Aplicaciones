@@ -13,58 +13,65 @@
 </head>
 
 <body>
+    <div class="position-caja">
+        {% with messages = get_flashed_messages() %}
+        
+        {% if messages %}
 
-    {% with messages = get_flashed_messages() %}
+        <div style="color:red; font-size:large">
+            <ul class=flashes>
 
-    {% if messages %}
-    <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
 
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-
-    </ul>
-    {% endif %}
-
-    {% endwith %}
-
-    <div class="fondo-general">
-        <br>
-        <div class="caja-body">
-            <section>
-                <div class="caja">
-                    <div class="caja-titulo">
-                        Acceder
-                    </div>
-
-                    <form action="" method="post" class="caja-campos">
-
-                        <div class="caja-inputs">
-                            <input type="text" name="user" id="user" placeholder="Usuario..." class="caja-input">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="caja-inputs">
-                            <input type="text" name="password" id="password" placeholder="Contraseña..."
-                                class="caja-input">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div class="g-recaptcha" data-sitekey="6LeAdQcbAAAAAFhWhLVOYQz2RSawVM1brJY9j7ql"></div> <br>
-                        <div class="caja-boton">
-                            <input type="submit" value="Iniciar sesión" class="caja-boton-css">
-                        </div>
-                        <div class="caja-link">
-                            ¿No tienes una cuenta?<br display="none">
-                            <a href="{{url_for('register')}}">Regístrate</a>
-                        </div>
-                        <br>
-                        <div class="caja-boton">
-                            <a href="{{url_for('inicioNotLogged')}}" class="caja-boton-css">Regresar</a>
-                        </div>
-                    </form>
-                </div>
-            </section>
+            </ul>
         </div>
-        <br>
+        
+        {% endif %}
+
+        {% endwith %}
+       
+        
+
+        <div class="fondo-general">
+            <br>
+            <div class="caja-body">
+                <section>
+                    <div class="caja">
+                        <div class="caja-titulo">
+                            Acceder
+                        </div>
+
+                        <form action="" method="post" class="caja-campos">
+
+                            <div class="caja-inputs">
+                                <input type="text" name="user" id="user" placeholder="Usuario..." class="caja-input">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="caja-inputs">
+                                <input type="text" name="password" id="password" placeholder="Contraseña..."
+                                    class="caja-input">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="g-recaptcha" data-sitekey="6LeAdQcbAAAAAFhWhLVOYQz2RSawVM1brJY9j7ql"></div> <br>
+                            <div class="caja-boton">
+                                <input type="submit" value="Iniciar sesión" class="caja-boton-css">
+                            </div>
+                            <div class="caja-link">
+                                ¿No tienes una cuenta?<br display="none">
+                                <a href="{{url_for('register')}}">Regístrate</a>
+                            </div>
+                            <br>
+                            <div class="caja-link">
+                                <a href="{{url_for('inicioNotLogged')}}">↩ Regresar a inicio</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <br>
+        </div>
     </div>
 
     <script src="{{url_for('static', filename='script.js')}}"></script>

@@ -42,7 +42,7 @@ body {
     position:relative;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom,#122b53, #173A7C);
+    background: linear-gradient(to bottom,#343a40, #6d7379);
     color: white;
     left: 0%;
     margin: 0px;
@@ -172,7 +172,7 @@ html {
 
 .footer-basic {
     padding: 16px;
-    background: linear-gradient(to bottom,#0d2042  0px,#173A7C);
+    background: linear-gradient(to bottom,#343a40  0px,#6d7379);
     color: white;
     font-size:medium;
     font-family: 'Montserrat', sans-serif;
@@ -351,9 +351,14 @@ h3 {
     box-shadow: 0 40px 40px rgba(0, 0, 0, 0.7);
 }
 
+.promos {
+    text-align: center;
+    vertical-align: middle;
+}
+
 .inicio-promos{
     margin: auto;
-    background-color: #163878;
+    background-color: #343a40;
     background-image: url(../static/images/burbujas.png); 
     background-repeat: no-repeat;
     background-position: center;
@@ -423,7 +428,10 @@ h3 {
     overflow: scroll;
 }
 
-
+.location {
+    text-align: center;
+    vertical-align: middle;
+}
 .location-plugin {
     background: white;
     padding-top: 0px;
@@ -468,7 +476,7 @@ h3 {
     padding-top: 40px;
   }
 
-.product {
+.tratamientos {
     background-color: white;
     /*background-image: linear-gradient(to bottom,white  0px,#e6dfdf);*/
   }
@@ -545,7 +553,6 @@ h3 {
 .about-us {
     background-color: white;
     color: black;
-    padding: 20px;
 }
 
 .about-title {
@@ -658,32 +665,61 @@ h3 {
 
 
 
+/*PRODUCTOS*/
 
-
-
-
-/* REGISTRO */
-
-.caja-body{
-   /* background-color: white;*/
+.productos{
+    background-color: white;
 }
+
+.tabla-productos {
+    padding-bottom: 60px;
+}
+
+
+
+
+
+
+
+
+/* REGISTRO Y LOGIN */
+
+.position-caja {
+    vertical-align: middle;
+}
+
+
+.caja-body {
+    margin: auto;
+    max-width: 100%;
+    min-width: 200px;
+}
+
+
+.g-recaptcha {
+    transform-origin: left top;
+    -webkit-transform-origin: left top;
+  }
+
 
 .caja{
     max-width: 30%;
     width: 100%;
     /*height: auto;*/
-    background: linear-gradient(to bottom,#0d2042, #173A7C);
+    background: linear-gradient(to bottom,#343a40, #6d7379);
     padding: 60px 45px;
     position:relative;
     /*top: 300px;
     left: 50%;
     transform: translate(-50%, -50%);*/
     margin: auto;
-    margin-top: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     vertical-align: middle;
     border-radius: 40px;
     border-style:inset;
     box-shadow: 0px 0px 20px 0px black;
+    min-width: 100px;
 }
 .caja-titulo {
     margin-bottom: 15px;
@@ -761,6 +797,9 @@ h3 {
 }
 
 
+
+
+
 /* CITA */
 
 
@@ -778,7 +817,7 @@ h3 {
     min-width: 320px;
     width: auto;
     height: auto;
-    background: linear-gradient(to bottom,#0d2042, #173A7C);
+    background: linear-gradient(to bottom,#343a40, #6d7379);
     padding: 40px 70px;
     position: relative;
     left: 46.2%;
@@ -837,7 +876,7 @@ h3 {
     min-width: 320px;
     width: auto;
     height: auto;
-    background: linear-gradient(to bottom,#0d2042, #173A7C);
+    background: linear-gradient(to bottom,#343a40, #6d7379);
     padding: 40px 70px;
     position: relative;
     left: 46.2%;
@@ -861,7 +900,7 @@ h3 {
     min-width: 320px;
     width: auto;
     height: auto;
-    background: linear-gradient(to bottom,#0d2042, #173A7C);
+    background: linear-gradient(to bottom,#343a40, #6d7379);
     padding: 40px 70px;
     position: relative;
     left: 46.2%;
@@ -891,6 +930,8 @@ h3 {
     border-radius: 0px;
     text-align:center;
     max-width: 100%;
+    width: 1200px;
+    margin: auto;
     /*border-style: inset;
     border: "1";*/
     /*position: relative;*/
@@ -915,16 +956,27 @@ h3 {
 
 .tabla th{
     color: white;
+    padding: 0px 25px 0px 25px;
 }
 .tabla td{
-    background: white;
+    background: white;  
+    padding: 5px 10px 5px 10px;
 }
 
-/* FONDO DE LOGIN, REGISTER Y  MI CUENTA*/
+.tabla img{
+    max-height: 100px;
+}
+
+
+/* FONDO DE LOGIN, REGISTER,  MI CUENTA y ADMINISTRACIÓN */
+
+
 body, html {
+    background-color: white;
     height: 100%;
     margin: 0;
   }
+
 .fondo-general{
     background-color: white;
     background-image: url(../static/images/fondo1.png); 
@@ -932,4 +984,10 @@ body, html {
     background-position: center;
     background-size: cover;
     height: 100%;
+    margin: auto;
+}
+
+
+.holder {
+    padding-bottom: 60px;
 }

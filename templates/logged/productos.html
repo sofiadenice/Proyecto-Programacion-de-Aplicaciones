@@ -4,26 +4,33 @@
 
 {% block content %}
 
-<h1>Catálogo de productos disponibles en clínica</h1>
-<table border="1">
-    <tr>
-        <th>Producto</th>
-        <th>Descripción</th>
-        <th>Marca</th>
-        <th>Precio</th>
-        <th>Stock</th>
-        <th>Imagen</th>
-    </tr>
-    {% for product in productList %}
-    <tr>
-        <td>{{ product["nombreProducto"] }}</td>
-        <td>{{ product["descripcion"] }}</td>
-        <td>{{ product["marca"] }}</td>
-        <td>$ {{ product["precio"] }}.00</td>
-        <td>{{ product["stock"] }}</td>
-        <td><img src={{ product["urlreference"]}}> </td>
-    </tr>
-    {% endfor %}
-</table>
+    <div class="productos">
+        <div class="title-heading">
+            <div class="container-h1"><h1>Catálogo de productos disponibles en clínica</h1></div>
+        </div>
+
+        <div class="tabla tabla-productos">
+            <table border="1">
+                <tr>
+                    <th>Producto</th>
+                    <th>Descripción</th>
+                    <th>Marca</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Imagen</th>
+                </tr>
+                {% for product in productList %}
+                <tr>
+                    <td>{{ product["nombreProducto"] }}</td>
+                    <td>{{ product["descripcion"] }}</td>
+                    <td>{{ product["marca"] }}</td>
+                    <td>$ {{ product["precio"] }}.00</td>
+                    <td>{{ product["stock"] }}</td>
+                    <td><img src={{ product["urlreference"]}}> </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 
 {% endblock content %}

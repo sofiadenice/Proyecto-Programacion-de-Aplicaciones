@@ -18,36 +18,40 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:24px 0;">
-        <a class="navbar-brand" href="{{ url_for('inicio') }}">Clidente</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navb">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('citasCRUD') }}">Citas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('tratamientosCRUD') }}">Tratamientos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('tratamientosForm') }}">Agregar tratamientos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('addAdminCRUD') }}">Gestionar administradores</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('addAdminForm') }}">Agregar administrador</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('proveedor') }}">Proveedores</a>
-                </li>
-                <div class="container" id="login">
-                    <li><a href="{{url_for('logout')}}">Log out</a></li>
-                </div>
-            </ul>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+                    <span class="navbar-toggler-icon"></span>
+                </button>   
+                <a class="navbar-brand" href="{{ url_for('inicio') }}">Clidente</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navb">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('citasCRUD') }}">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('tratamientosCRUD') }}">Tratamientos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('tratamientosForm') }}">Agregar&#160tratamientos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('addAdminCRUD') }}">Gestionar&#160administradores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('addAdminForm') }}">Agregar&#160administrador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('proveedor') }}">Proveedores</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{url_for('logout')}}"><span class="glyphicon glyphicon-log-in"></span>Log out</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
