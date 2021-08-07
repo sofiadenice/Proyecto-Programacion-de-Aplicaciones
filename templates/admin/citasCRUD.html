@@ -40,11 +40,11 @@
                     <td>{{ element["hora"] }}</td>
                     <td>
                         <div class="row">
-                            <div class="col-sm-2">
+                            <div class="col-sm-6">
                                 <a class="btn btn-success"
-                                    href="{{ url_for('citasForm', type='update') }}&id={{ element['id'] }}">update</a>
+                                    href="{{ url_for('citasForm', type='update') }}&id={{ element['id'] }}">Update</a>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-6">
                                 <form action="{{ url_for('citasDELETE') }}" method="post">
                                     <input type="hidden" name="id" id="id" value="{{ element['id'] }}">
                                     <input type="submit" class="btn btn-danger" value="Delete">
