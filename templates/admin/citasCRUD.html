@@ -30,21 +30,21 @@
                 {% for element in citaList %}
                 <tr>
                     <td>{{ element["id"] }}</td>
-                    <td>{{ element["user"] }}</td>
-                    <td>{{ element["nombre"] }}</td>
-                    <td>{{ element["apellido"] }}</td>
-                    <td>{{ element["correo"] }}</td>
+                    <td class="col-sm-1">{{ element["user"] }}</td>
+                    <td class="col-sm-1">{{ element["nombre"] }}</td>
+                    <td class="col-sm-1">{{ element["apellido"] }}</td>
+                    <td class="col-sm-2">{{ element["correo"] }}</td>
                     <td>{{ element["telefono"] }}</td>
-                    <td>{{ element["motivo"] }}</td>
-                    <td>{{ element["fecha"] }}</td>
+                    <td class="col-sm-2">{{ element["motivo"] }}</td>
+                    <td class="col-sm-1">{{ element["fecha"] }}</td>
                     <td>{{ element["hora"] }}</td>
                     <td>
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <a class="btn btn-success"
                                     href="{{ url_for('citasForm', type='update') }}&id={{ element['id'] }}">Update</a>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <form action="{{ url_for('citasDELETE') }}" method="post">
                                     <input type="hidden" name="id" id="id" value="{{ element['id'] }}">
                                     <input type="submit" class="btn btn-danger" value="Delete">

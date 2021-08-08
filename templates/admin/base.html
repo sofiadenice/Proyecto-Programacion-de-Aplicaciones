@@ -49,6 +49,8 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="navbar-item"><a href="{{ url_for('micuenta') }}"><span class="iconify avatar"
+                        data-icon="carbon:user-avatar-filled" data-inline="false"></span>‏‏‎&#160&#160‏‏‎{{session["login_user"]}}</a></li>
                     <li><a href="{{url_for('logout')}}"><span class="glyphicon glyphicon-log-in"></span>Log out</a></li>
                 </ul>
             </div>
@@ -61,10 +63,14 @@
         <div class="footer-basic">
             <div class="footer-left">
                 <section class="footer-sections">
+                    <h2>Clidente</h2>
+                    <p>Clínica Dental, a tu servicio; nuestro objetivo es poderte ayudar en tener una buena salud bucal.</p>
+                </section>
+                <section class="footer-sections">
                     <header>Nosotros</header>
+                    <a href="{{url_for('inicio')}}">Inicio</a>
                     <a href="{{url_for('about')}}">Conócenos</a>
                     <a href="{{url_for('contacto')}}">Contacto</a>
-                    <a href="{{url_for('inicio')}}">Inicio</a>
                 </section>
                 <section class="footer-sections">
                     <header>Servicios</header>
@@ -72,8 +78,14 @@
                     <a href="{{url_for('productos')}}">Productos</a>
                     <a href="{{url_for('cita')}}">Haz tu cita</a>
                 </section>
-                <section class="footer-sections">
-                    <header>Nuestra redes</header>
+            </div>
+        </div>
+        <div class="footer-basic-1">
+            <div class="footer-left-1">
+                <section class="footer-sections-1">
+                    <p class="copyright">Clidente® 2021</p>
+                </section>
+                <section class="footer-sections-1">
                     <div class="social">
                         <a href="https://www.facebook.com/clinicadentalclidente/"><span class="iconify"
                                 data-icon="ant-design:facebook-filled" data-inline="false"></span></a>
@@ -84,8 +96,6 @@
                     </div>
                 </section>
             </div>
-
-            <p class="copyright">Clidente® 2021</p>
         </div>
     </footer>
 
