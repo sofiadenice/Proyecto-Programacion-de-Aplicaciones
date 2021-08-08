@@ -34,8 +34,10 @@
 
 
 <div class="container">
-    <h1>addAdmin {{ type }}</h1>
-
+    <div class="title-heading">
+        <div class="container-h1"><div class="container-h1-h1"><h1>addAdmin&#160{{ type }}</h1></div></div>
+    </div>
+    
     <div class="holder">
         <form action="{{ url_for('addAdminForm', type=type) }}" method="post">
             {% if addAdminObj %}

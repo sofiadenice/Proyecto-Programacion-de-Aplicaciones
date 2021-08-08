@@ -16,7 +16,9 @@
 
 {% block content %}
 <div class="container">
-    <h1>Tratamiento {{ type }}</h1>
+    <div class="title-heading">
+        <div class="container-h1"><div class="container-h1-h1"><h1>Tratamiento&#160{{ type }}</h1></div></div>
+    </div>
     <div class="holder">
         <form action="{{ url_for('tratamientosForm', type=type) }}" method="post">
             {% if tratamientoObj %}

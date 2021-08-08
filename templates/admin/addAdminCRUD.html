@@ -5,15 +5,15 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="container-fluid">
-        <h1>Registro de administradores</h1>
+    <div class="container-fluid title-heading">
+        <div class="container-h1"><div class="container-h1-h1"><h1>Registro&#160de&#160administradores</h1></div></div>
     </div>
     <div class="container-fluid">
         <a class="btn btn-success"
             href="{{ url_for('addAdminForm') }}">Agregar administrador</a>
     </div>
     <div class="holder container-fluid pt-3">
-        <table class="table table-dark table-hover">
+        <table class="table table-bordered table-hover" style="background-color: white;">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -29,22 +29,22 @@
                 {% for element in AddAdminList %}
                 <tr>
                     <td>{{ element["id"] }}</td>
-                    <td>{{ element["user_name"] }}</td>
-                    <td>{{ element["user_email"] }}</td>
-                    <td>{{ element["password"] }}</td>
-                    <td>{{ element["salt"] }}</td>
+                    <td style="max-width: 100px; word-wrap:break-word">{{ element["user_name"] }}</td>
+                    <td style="max-width: 250px; word-wrap:break-word">{{ element["user_email"] }}</td>
+                    <td style="max-width: 400px; word-wrap:break-word"><p>{{ element["password"] }}</p></td>
+                    <td style="max-width: 200px; word-wrap:break-word">{{ element["salt"] }}</td>
                     <td>
                         <div class="row">
-                            
-                            <a class="btn btn-success"
-                                href="{{ url_for('addAdminForm', type='update') }}&id={{ element['id'] }}">Update</a>
-                        
-                        
-                            <form action="{{ url_for('addAdminDELETE') }}" method="post">
-                                <input type="hidden" name="id" id="id" value="{{ element['id'] }}">
-                                <input type="submit" class="btn btn-danger" value="Delete">
-                            </form>
-                            
+                            <div class="col-sm-5">
+                                <a class="btn btn-success"
+                                    href="{{ url_for('addAdminForm', type='update') }}&id={{ element['id'] }}">Update</a>
+                            </div>
+                            <div class="col-sm-5">
+                                <form action="{{ url_for('addAdminDELETE') }}" method="post">
+                                    <input type="hidden" name="id" id="id" value="{{ element['id'] }}">
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                </form>
+                            </div>
                         </div>
                     </td>
                 </tr>

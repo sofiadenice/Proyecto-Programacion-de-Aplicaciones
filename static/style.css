@@ -313,13 +313,59 @@ SALUDO AL USER
 /*FORMATO DE H1 Y H2*/
 
 
-* h1{
+/** h1{
     margin: auto;
     font-size: 40px;
     color: #00AEBA;
     text-align: center;
     padding: 30px;
+}*/
+
+.container-h1{
+    margin: auto;
 }
+
+.container-h1{
+    position: relative;
+    top: 30px;
+    margin-bottom: 60px;
+    text-align: center;
+    background-color: #3ab31b;
+    background-image: linear-gradient(60deg, #00AEBA, #3ab31b, #fdbb20);
+    border-radius: 30px;
+    max-width: fit-content;
+    max-height: 90px;
+    vertical-align: middle;
+    padding: 3px;
+}
+
+
+.container-h1 h1{
+    max-width: 100%;
+    font-size: 40px;
+    margin-top: 10px;
+    color: #00AEBA;
+    text-align: center;
+    padding: 0px 50px 0px 50px;
+}
+
+.container-h1-h1 {
+    position: relative;
+    text-align: center;
+    background-color: white;
+    border-radius: 30px;
+    max-width: fit-content;
+    max-height: 70px;
+    vertical-align: middle;
+    padding: 3px;
+}
+
+
+
+
+
+
+
 
 .container-h2{
     margin: auto;
@@ -845,8 +891,8 @@ h3 {
 
 
 .caja-section{
-    background-color: white;
     background-image: url(../static/images/fondo1.png); 
+    background-color: white;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -969,10 +1015,11 @@ h3 {
 
 .tabla{
     border-radius: 0px;
-    text-align:center;
+    text-align:left;
     max-width: 100%;
-    width: 1200px;
+    width: 1325px;
     margin: auto;
+    padding: 19px;
     /*border-style: inset;
     border: "1";*/
     /*position: relative;*/
@@ -981,32 +1028,26 @@ h3 {
 }
 .tabla table{
     color: black;
-    /*background-color: linear-gradient(60deg, #00AEBA, #3ab31b, #fdbb20);
+    background: white;
     border-collapse: collapse;
-    border: 10px solid;
-    border-image-slice: 1;
-    border-width: 5px;
-    border-image-source: linear-gradient(60deg, #00AEBA, #3ab31b, #fdbb20);*/
-    margin: auto;
-    background-image: linear-gradient(60deg, #00AEBA, #3ab31b, #fdbb20); /* the gradient */
-    background-origin: border-box; /* set background to start from border-box */
-    border-spacing: 5px; /* space between each cell */
-    border: 5px solid transparent; /* optional */
-    
+    border-color: #dee2e6;
 }
 
 .tabla th{
-    color: white;
-    padding: 0px 25px 0px 25px;
+    padding: 12px;
+    border-bottom: 2px solid #dee2e6;
 }
-.tabla td{
-    background: white;  
-    padding: 15px 10px 15px 10px;
+.tabla td{  
+    padding: 12px;
 }
 
 .tabla img{
     max-height: 100px;
+    max-width: 100%;
+    justify-content:center;
 }
+
+tr:hover {background-color: #ececec;}
 
 
 /* FONDO DE LOGIN, REGISTER,  MI CUENTA y ADMINISTRACIÓN */

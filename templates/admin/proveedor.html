@@ -4,7 +4,10 @@
 
 {% block content %}
 
-<h1>Catálogo de proveedores</h1>
+<div class="title-heading">
+    <div class="container-h1"><div class="container-h1-h1"><h1>Catálogo&#160de&#160proveedores</h1></div></div>
+</div>
+
 <div class="tabla tabla-productos">
     <table border="1">
         <tr>
@@ -19,12 +22,12 @@
         {% for proveedor in proveedorList %}
         <tr>
             <td>{{ proveedor["nombreProducto"] }}</td>
-            <td>{{ proveedor["descripcion"] }}</td>
+            <td style="max-width: 900px;">{{ proveedor["descripcion"] }}</td>
             <td>{{ proveedor["marca"] }}</td>
             <td>{{ proveedor["empresa"] }}</td>
-            <td>$ {{ proveedor["precio"] }}.00</td>
+            <td style="width: 90px;">$ {{ proveedor["precio"] }}.00</td>
             <td>{{ proveedor["stock"] }}</td>
-            <td><img src={{ proveedor["urlreference"]}}> </td>
+            <td style="width: 150px;"><img src={{ proveedor["urlreference"]}}> </td>
         </tr>
         {% endfor %}
     </table>

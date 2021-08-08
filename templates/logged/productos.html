@@ -6,7 +6,7 @@
 
     <div class="productos">
         <div class="title-heading">
-            <div class="container-h1"><h1>Catálogo de productos disponibles en clínica</h1></div>
+            <div class="container-h1"><div class="container-h1-h1"><h1>Catálogo&#160de&#160productos&#160sugeridos</h1></div></div>
         </div>
 
         <div class="tabla tabla-productos">
@@ -16,17 +16,17 @@
                     <th>Descripción</th>
                     <th>Marca</th>
                     <th>Precio</th>
-                    <th>Stock</th>
+                    <!--<th>Stock</th>-->
                     <th>Imagen</th>
                 </tr>
                 {% for product in productList %}
                 <tr>
                     <td>{{ product["nombreProducto"] }}</td>
-                    <td>{{ product["descripcion"] }}</td>
+                    <td style="max-width: 900px;">{{ product["descripcion"] }}</td>
                     <td>{{ product["marca"] }}</td>
-                    <td>$ {{ product["precio"] }}.00</td>
-                    <td>{{ product["stock"] }}</td>
-                    <td><img src={{ product["urlreference"]}}> </td>
+                    <td style="width: 90px;">$ {{ product["precio"] }}.00</td>
+                    <!--<td>{{ product["stock"] }}</td>-->
+                    <td style="width: 150px;"><img src={{ product["urlreference"]}}> </td>
                 </tr>
                 {% endfor %}
             </table>
