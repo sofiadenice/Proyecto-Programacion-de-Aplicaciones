@@ -1,108 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clidente | Pago</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="/static/script.js" defer></script>
-</head>
+{% extends '/logged/base.html' %}
 
-<body>
-    <nav class="cabecera">
-        <div class="empresa">Clidente</div>
-        <a href="#" class="menu-desplegable">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </a>
-        <div name="linkers" class="nav">
-        <ul>
-            
-            <div class="container" id="login">
-                <!--<li><a href="{{url_for('login')}}">Login</a></li>-->
-                <!--<li><img src="{{url_for('static', filename='images/unnamed.png')}}" width="40" height="40" alt="">-->
-                
-            </div>
-        </ul>
+{% block title %}Clidente | Pago{% endblock title %}
+
+{% block content %}
+
+
+<div class="holder container">
+    <h1>Información de pago</h1>
+
+    <form action="{{ url_for('pago', type=type) }}" method="post">
+
+        <h2>Información sobre su cita</h2>
+        <div class="form-group">
+            <label for="value">Usuario:</label>
+            <input type="text" class="form-control" id="user" name="user" value={{ citaDic['user'] }} readonly>
         </div>
-    </nav>
+        
+        <div class="form-group">
+            <label for="value">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value={{ citaDic['nombre'] }} readonly>
+        </div>
 
-    <div class="holder container">
-        <h1>Información de pago</h1>
+        <div class="form-group">
+            <label for="value">Apellido:</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" value={{ citaDic['apellido'] }} readonly>
+        </div>
 
-        <form action="{{ url_for('pago', type=type) }}" method="post">
+        <div class="form-group">
+            <label for="value">Correo:</label>
+            <input type="text" class="form-control" id="correo" name="correo" value={{ citaDic['correo'] }} readonly>
+        </div>
 
-            <h2>Información sobre su cita</h2>
-            <div class="form-group">
-                <label for="value">Usuario:</label>
-                <input type="text" class="form-control" id="user" name="user" value={{ citaDic['user'] }} readonly>
-            </div>
-            
-           <div class="form-group">
-                <label for="value">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value={{ citaDic['nombre'] }} readonly>
-            </div>
+        <div class="form-group">
+            <label for="value">Teléfono:</label>
+            <input type="text" class="form-control" id="telefono" name="telefono" value={{ citaDic['telefono'] }} readonly>
+        </div>
 
-           <div class="form-group">
-                <label for="value">Apellido:</label>
-                <input type="text" class="form-control" id="apellido" name="apellido" value={{ citaDic['apellido'] }} readonly>
-            </div>
+        <div class="form-group">
+            <label for="value">Motivo:</label>
+            <input type="text" class="form-control" id="motivo" name="motivo" value={{ citaDic['motivo'] }} readonly>
+        </div>
 
-            <div class="form-group">
-                <label for="value">Correo:</label>
-                <input type="text" class="form-control" id="correo" name="correo" value={{ citaDic['correo'] }} readonly>
-            </div>
+        <div class="form-group">
+            <label for="value">Fecha:</label>
+            <input type="text" class="form-control" id="fecha" name="fecha" value={{ citaDic['fecha'] }} readonly>
+        </div>
 
-           <div class="form-group">
-                <label for="value">Teléfono:</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" value={{ citaDic['telefono'] }} readonly>
-            </div>
+        <div class="form-group">
+            <label for="value">Hora:</label>
+            <input type="text" class="form-control" id="hora" name="hora" value={{ citaDic['hora'] }} readonly>
+        </div>
 
-           <div class="form-group">
-                <label for="value">Motivo:</label>
-                <input type="text" class="form-control" id="motivo" name="motivo" value={{ citaDic['motivo'] }} readonly>
-            </div>
+        <h2>Ingrese la información de su tarjeta de crédito</h2>
+        <div class="form-group">
+            <label for="value">Ingrese el número de su tarjeta de crédito:</label>
+            <input type="text" class="form-control" id="tarjeta" name="tarjeta" placeholder="Ingrese el número de su tarjeta de crédito">
+        </div>
+        
+        <div class="form-group">
+            <label for="value">Ingrese el código de seguridad:</label>
+            <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Ingrese el código de seguridad">
+        </div>
 
-           <div class="form-group">
-                <label for="value">Fecha:</label>
-                <input type="text" class="form-control" id="fecha" name="fecha" value={{ citaDic['fecha'] }} readonly>
-            </div>
+        <div class="form-group">
+            <label for="value">Ingrese la fecha de vencimiento:</label>
+            <input type="text" class="form-control" id="vencimiento" name="vencimiento" placeholder="MM/YY">
+        </div>
 
-            <div class="form-group">
-                <label for="value">Hora:</label>
-                <input type="text" class="form-control" id="hora" name="hora" value={{ citaDic['hora'] }} readonly>
-            </div>
+        <div class="form-group">
+            <label for="value">Ingrese el nombre que aparece en la tarjeta de crédito:</label>
+            <input type="text" class="form-control" id="titular" name="titular" placeholder="Ingrese el nombre que aparece en la tarjeta de crédito">
+        </div>
+        
+        <a class="btn btn-danger" href={{ url_for('cita') }}>Cancelar</a>
+        <input type="submit" class="btn btn-success" value="Procesar el pago">
+    </form>
+</div>
+<script src="/static/script.js" defer></script>
 
-            <h2>Ingrese la información de su tarjeta de crédito</h2>
-            <div class="form-group">
-                <label for="value">Ingrese el número de su tarjeta de crédito:</label>
-                <input type="text" class="form-control" id="tarjeta" name="tarjeta" placeholder="Ingrese el número de su tarjeta de crédito">
-            </div>
-            
-            <div class="form-group">
-                <label for="value">Ingrese el código de seguridad:</label>
-                <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Ingrese el código de seguridad">
-            </div>
-
-            <div class="form-group">
-                <label for="value">Ingrese la fecha de vencimiento:</label>
-                <input type="text" class="form-control" id="vencimiento" name="vencimiento" placeholder="MM/YY">
-            </div>
-
-            <div class="form-group">
-                <label for="value">Ingrese el nombre que aparece en la tarjeta de crédito:</label>
-                <input type="text" class="form-control" id="titular" name="titular" placeholder="Ingrese el nombre que aparece en la tarjeta de crédito">
-            </div>
-            
-            <a class="btn btn-danger" href={{ url_for('cita') }}>Cancelar</a>
-            <input type="submit" class="btn btn-success" value="Procesar el pago">
-        </form>
-    </div>
-</body>
-
-</html>
+{% endblock content %}
