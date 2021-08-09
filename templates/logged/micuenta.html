@@ -6,6 +6,32 @@
 
 <div class="container-fluid">
     <div class="title-heading">
+        <div class="container-h1"><div class="container-h1-h1"><h1>Datos&#160Personales</h1></div></div>
+    </div>
+    <div class="holder container-fluid pt-3">
+        <table class="table table-bordered table-hover" style="background-color: white;">
+            <tr>
+                <td>Usuario</td> 
+                <td>{{ session["login_user"] }}</td>
+            </tr>
+            <tr>
+                <td>Correo</td> 
+                <td>{{ session["email"] }} </td>
+            </tr>
+            <tr>
+                <td>Editar contraseña</td> 
+                <td>
+                    <div class="col-sm-5">  
+                        <a class="btn btn-success" href="{{ url_for('contraForm') }}">Update</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <div class="title-heading">
         <div class="container-h1"><div class="container-h1-h1"><h1>Registro&#160de&#160citas&#160personales</h1></div></div>
     </div>
     <div class="holder container-fluid pt-3">

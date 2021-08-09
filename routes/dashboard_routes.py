@@ -1,8 +1,11 @@
 from flask import render_template, redirect, request, session, flash
 from logic.tratamiento_logic import TratamientoLogic
 from logic.cita_logic import CitaLogic
+from logic.user_logic import UserLogic
+from logic.addAdmin_logic import AddAdminLogic
 from datetime import timedelta
 import requests
+import bcrypt
 
 
 class DashboardRoutes:
@@ -197,3 +200,49 @@ class DashboardRoutes:
             print(currentCita1)
             url = f"{templateFolder}micuenta.html"
             return render_template(url, citaObj1=currentCita1)
+        
+        @app.route("/contraForm", methods=["GET", "POST"])
+        def contraForm():
+            if request.method == "GET":
+                url = f"{templateFolder}contraForm.html"
+                return render_template(url)
+
+            elif request.method == "POST":
+                    
+                    logic = UserLogic()
+                    username = session["login_user"]
+                    userDict = logic.getRowByUser(username)
+                    id = session["id"]
+
+                    contrasenaA = request.form["contrasenaVieja"]
+                    passwordN = request.form["contrasenaNueva"]
+                    confirmPassword = request.form["confirmarContra"]
+
+                    # verificar que el password sea igual al confirm password
+                    salt = userDict["salt"].encode("utf-8")
+                    strPassword = contrasenaA.encode("utf-8")
+                    hashPassword = bcrypt.hashpw(strPassword, salt)
+                    dbPassword = userDict["password"].encode("utf-8")
+                    if hashPassword == dbPassword:
+                        
+                    
+                        if passwordN == confirmPassword:
+
+                            # generar el salt , hacer el hash de la passw y insertar en bd
+                            useremail = session["email"]
+                            salt = bcrypt.gensalt(rounds=14)
+                            strSalt = salt.decode("utf-8")
+                            encPassword = passwordN.encode("utf-8")
+                            hashPassword = bcrypt.hashpw(encPassword, salt)
+                            strPassword = hashPassword.decode("utf-8")
+                            logicAdd =  AddAdminLogic()
+                            rows = logicAdd.updateUser(id, useremail, strPassword, strSalt)
+                            return redirect("micuenta")
+                            # return "register validRecaptcha uniqueUser Passw==ConfPassw post"
+                        else:
+                            flash("Las contraseñas nuevas no coinciden")
+                            return redirect("micuenta")
+                    else:
+                        flash("La contraseña actual no coincide")
+                        return redirect("micuenta")
+

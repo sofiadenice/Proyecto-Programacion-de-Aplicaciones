@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, flash
 from tools.recaptcha_helper import RecaptchaHelper
 from logic.user_logic import UserLogic
 import bcrypt
@@ -40,8 +40,11 @@ class RegisterRoutes:
                             # return "register validRecaptcha uniqueUser Passw==ConfPassw post"
 
                         else:
+                            flash("No coinciden las contraseñas")
                             return redirect("register")
                     else:
+                        flash("Ingresa otro usuario")
                         return redirect("register")
                 else:
+                    flash("Debe validar el Recaptcha")
                     return redirect("register")

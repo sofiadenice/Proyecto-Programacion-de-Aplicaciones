@@ -14,6 +14,25 @@
 
 <body>
     <div class="position-caja">
+        {% with messages = get_flashed_messages() %}
+        
+        {% if messages %}
+
+        <div style="color:red; font-size:large">
+            <ul class=flashes>
+
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        
+        {% endif %}
+
+        {% endwith %}
+       
+    <div class="position-caja">
         <div class="fondo-general">
             <br>
             <section class="caja-body">
