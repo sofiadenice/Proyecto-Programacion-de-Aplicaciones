@@ -2,12 +2,12 @@
 
 {% if addAdminObj %}
 
-{% set type = 'update' %}
+{% set type = 'Update' %}
 {% set button = 'Update' %}
 
 {% else %}
 
-{% set type = 'new' %}
+{% set type = 'New' %}
 {% set button = 'Create' %}
 
 {% endif %}
@@ -21,21 +21,24 @@
 {% with messages = get_flashed_messages() %}
 
     {% if messages %}
-    <ul class=flashes>
 
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
+    {% for message in messages %}
+        
+    <div class="alert alert-info alert-dismissible" style="position:absolute; top:70px; right:10px; font-size:20px;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" style="margin-top:6px;">&times;</a>  
+        <strong>Info!</strong> {{ message }}   
+    </div>
 
-    </ul>
+    {% endfor %}
+
     {% endif %}
 
-    {% endwith %}
+{% endwith %}
 
 
 <div class="container">
     <div class="title-heading">
-        <div class="container-h1"><div class="container-h1-h1"><h1>addAdmin&#160{{ type }}</h1></div></div>
+        <div class="container-h1"><div class="container-h1-h1"><h1>Administrador:&#160{{ type }}</h1></div></div>
     </div>
     
     <div class="holder">

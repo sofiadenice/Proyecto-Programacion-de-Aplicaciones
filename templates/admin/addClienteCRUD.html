@@ -8,15 +8,14 @@
         
         {% if messages %}
 
-        <div style="color:red; font-size:large">
-            <ul class=flashes>
+        {% for message in messages %}
 
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-
-            </ul>
+        <div class="alert alert-info alert-dismissible" style="position:absolute; top:70px; right:10px; font-size:20px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" style="margin-top:6px;">&times;</a>  
+            <strong>Info!</strong> {{ message }}   
         </div>
+            
+        {% endfor %}
         
         {% endif %}
 

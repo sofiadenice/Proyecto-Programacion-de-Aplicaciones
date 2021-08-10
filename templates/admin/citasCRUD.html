@@ -14,15 +14,15 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Usuario</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Correo</th>
-                    <th>Teléfono</th>
-                    <th>Motivo</th>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th>Estado</th>
+                    <th style="max-width: 90px; word-wrap:break-word">Usuario</th>
+                    <th style="max-width: 90px; word-wrap:break-word">Nombre</th>
+                    <th style="max-width: 90px; word-wrap:break-word">Apellido</th>
+                    <th style="max-width: 100px; word-wrap:break-word">Correo</th>
+                    <th style="max-width: 90px; word-wrap:break-word">Teléfono</th>
+                    <th style="max-width: 100px; word-wrap:break-word">Motivo</th>
+                    <th style="max-width: 90px; word-wrap:break-word">Fecha</th>
+                    <th style="max-width: 70px; word-wrap:break-word">Hora</th>
+                    <th style="max-width: 90px; word-wrap:break-word">Estado</th>
                     <th>Acciones</th>
 
                 </tr>
@@ -31,13 +31,13 @@
                 {% for element in citaList %}
                 <tr>
                     <td>{{ element["id"] }}</td>
-                    <td class="col-sm-1">{{ element["user"] }}</td>
-                    <td class="col-sm-1">{{ element["nombre"] }}</td>
-                    <td class="col-sm-1">{{ element["apellido"] }}</td>
-                    <td class="col-sm-2">{{ element["correo"] }}</td>
+                    <td>{{ element["user"] }}</td>
+                    <td>{{ element["nombre"] }}</td>
+                    <td>{{ element["apellido"] }}</td>
+                    <td>{{ element["correo"] }}</td>
                     <td>{{ element["telefono"] }}</td>
-                    <td class="col-sm-2">{{ element["motivo"] }}</td>
-                    <td class="col-sm-1">{{ element["fecha"] }}</td>
+                    <td>{{ element["motivo"] }}</td>
+                    <td>{{ element["fecha"] }}</td>
                     <td>{{ element["hora"] }}</td>
                     <th> {{ element["estado"] }}</td>
                     <td>

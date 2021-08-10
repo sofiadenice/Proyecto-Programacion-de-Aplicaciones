@@ -16,28 +16,28 @@
         <table class="table table-bordered table-hover" style="background-color: white;">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
+                    <th style="max-width: 70px; word-wrap:break-word">Id</th>
+                    <th style="max-width: 150px; word-wrap:break-word">Nombre</th>
+                    <th style="max-width: 300px; word-wrap:break-word">Descripción</th>
                     <th>Imagen</th>
-                    <th>Acciones</th>
+                    <th style="min-width: 250px; word-wrap:break-word">Acciones</th>
 
                 </tr>
             </thead>
             <tbody>
                 {% for element in tratamientoList %}
                 <tr>
-                    <td class="col-sm-0">{{ element["id"] }}</td>
-                    <td class="col-sm-1">{{ element["nombre"] }}</td>
-                    <td class="col-sm-5">{{ element["descripcion"] }}</td>
-                    <td class="col-sm-2">{{ element["imagen"] }}</td>
+                    <td>{{ element["id"] }}</td>
+                    <td>{{ element["nombre"] }}</td>
+                    <td>{{ element["descripcion"] }}</td>
+                    <td><img src="{{ element["imagen"] }}" style="max-height:100px; max-width:100%;"></td>
                     <td>
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-5">
                                 <a class="btn btn-success"
                                     href="{{ url_for('tratamientosForm', type='update') }}&id={{ element['id'] }}">Update</a>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-5">
                                 <form action="{{ url_for('tratamientosDELETE') }}" method="post">
                                     <input type="hidden" name="id" id="id" value="{{ element['id'] }}">
                                     <input type="submit" class="btn btn-danger" value="Delete">

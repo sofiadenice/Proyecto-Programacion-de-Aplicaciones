@@ -12,7 +12,7 @@
     </div>
     <form action="{{ url_for('pago', type=type) }}" method="post">
 
-        <h2>Información sobre su cita</h2>
+        <div class="container-h2"><h2>Información sobre su cita</h2></div>
         <div class="form-group">
             <label for="value">Usuario:</label>
             <input type="text" class="form-control" id="user" name="user" value= "{{ citaDic["user"] }}" readonly>
@@ -53,10 +53,12 @@
             <input type="text" class="form-control" id="hora" name="hora" value= "{{ citaDic['hora'] }}" readonly>
         </div>
         <br>
-        <h2>Costo de la cita</h2>
-        <h1>$ 10.00</h1>
+        <div>
+        <h5 style="font-size: 200%; text-align:center">Costo de la cita: $10.00</h5>
+        <div class="line"></div>
+        </div>
         <br>
-        <h2>Ingrese la información de su tarjeta de crédito</h2>
+        <div class="container-h2"><h2>Ingrese la información de su tarjeta de crédito</h2></div>
         <div class="form-group">
             <label for="value">Ingrese el número de su tarjeta de crédito:</label>
             <input type="text" class="form-control" id="tarjeta" name="tarjeta" placeholder="Ingrese el número de su tarjeta de crédito">

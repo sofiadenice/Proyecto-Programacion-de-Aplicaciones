@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -17,17 +20,16 @@
         {% with messages = get_flashed_messages() %}
         
         {% if messages %}
-
-        <div style="color:red; font-size:large">
-            <ul class=flashes>
-
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-
-            </ul>
-        </div>
         
+        {% for message in messages %}
+
+        <div class="alert alert-info alert-dismissible" style="position:absolute; top:10px; right:10px; font-size:20px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" style="margin-top:6px;">&times;</a>  
+            <strong>Info!</strong> {{ message }}   
+        </div>
+
+        {% endfor %}
+       
         {% endif %}
 
         {% endwith %}

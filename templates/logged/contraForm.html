@@ -9,13 +9,17 @@
 {% with messages = get_flashed_messages() %}
 
     {% if messages %}
-    <ul class=flashes>
 
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
+    {% for message in messages %}
 
-    </ul>
+    <div class="alert alert-info alert-dismissible" style="position:absolute; top:70px; right:10px; font-size:20px;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" style="margin-top:6px;">&times;</a>  
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>  
+        <strong>Info!</strong> {{ message }}   
+    </div>
+
+    {% endfor %}
+
     {% endif %}
 
     {% endwith %}
