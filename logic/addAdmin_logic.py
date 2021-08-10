@@ -7,19 +7,19 @@ class AddAdminLogic(PybaLogic):
 
     def selectAllAddAdmin(self):
         database = self.createDatabaseObj()
-        sql = "SELECT * FROM clidente.user WHERE role = 'admin';"
+        sql = "SELECT * FROM user WHERE role = 'admin';"
         result = database.executeQuery(sql)
         return result
 
     def selectAllAddCliente(self):
         database = self.createDatabaseObj()
-        sql = "SELECT * FROM clidente.user WHERE role = 'cliente';"
+        sql = "SELECT * FROM user WHERE role = 'cliente';"
         result = database.executeQuery(sql)
         return result
 
     def getAdminById(self, id):
         database = self.createDatabaseObj()
-        sql = f"SELECT * FROM clidente.user WHERE id={id};"
+        sql = f"SELECT * FROM user WHERE id={id};"
         result = database.executeQuery(sql)
         if len(result) != 0:
             return result[0]
@@ -29,7 +29,7 @@ class AddAdminLogic(PybaLogic):
     def insertAdminUser(self, userName, userEmail, password, salt):
         database = self.createDatabaseObj()
         sql = (
-            "INSERT INTO clidente.user "
+            "INSERT INTO user "
             + "( id, user_name, user_email, password, salt, role) "
             + f"VALUES(0,'{userName}','{userEmail}','{password}','{salt}', 'admin');"
         )
@@ -38,7 +38,7 @@ class AddAdminLogic(PybaLogic):
 
     def updateUser(self, id, userEmail, password, salt):
         database = self.createDatabaseObj()
-        sql =  ("UPDATE `clidente`.`user` SET "
+        sql =  ("UPDATE `user` SET "
             + f"`id` = {id}, "
             + f" user_email = '{userEmail}', "
             + f" password = '{password}', "
@@ -52,6 +52,6 @@ class AddAdminLogic(PybaLogic):
 
     def deleteUser(self, id):
         database = self.createDatabaseObj()
-        sql = (f"DELETE FROM `clidente`.`user` WHERE id={id};")
+        sql = (f"DELETE FROM `user` WHERE id={id};")
         rows = database.executeNonQueryRows(sql)
         return rows

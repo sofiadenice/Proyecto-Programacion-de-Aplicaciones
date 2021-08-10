@@ -7,13 +7,13 @@ class TratamientoLogic(PybaLogic):
 
     def selectAllTratamiento(self):
         database = self.createDatabaseObj()
-        sql = "SELECT * FROM clidente.tratamiento;"
+        sql = "SELECT * FROM tratamiento;"
         result = database.executeQuery(sql)
         return result
     
     def getTratamientoById(self, id):
         database = self.createDatabaseObj()
-        sql = f"SELECT * FROM clidente.tratamiento WHERE id={id};"
+        sql = f"SELECT * FROM tratamiento WHERE id={id};"
         result = database.executeQuery(sql)
         if len(result) != 0:
             return result[0]
@@ -23,7 +23,7 @@ class TratamientoLogic(PybaLogic):
     def insertTratamiento(self, nombre, descripcion, imagen):
         database = self.createDatabaseObj()
         sql = (
-            "INSERT INTO clidente.tratamiento "
+            "INSERT INTO tratamiento "
             + "(`id`, `nombre`, `descripcion`, `imagen`) "
             + f"VALUES (0,'{nombre}','{descripcion}','{imagen}');"
         )
@@ -32,7 +32,7 @@ class TratamientoLogic(PybaLogic):
 
     def updateTratamiento(self, id, nombre, descripcion, imagen):
         database = self.createDatabaseObj()
-        sql = ("UPDATE clidente.tratamiento SET "
+        sql = ("UPDATE tratamiento SET "
             + f"`id` = {id}, "
             + f"`nombre` = '{nombre}', "
             + f"`descripcion` = '{descripcion}', "
@@ -43,7 +43,7 @@ class TratamientoLogic(PybaLogic):
 
     def deleteTratamiento(self, id):
         database = self.createDatabaseObj()
-        sql = (f"DELETE FROM `clidente`.`tratamiento` WHERE id={id};")
+        sql = (f"DELETE FROM `tratamiento` WHERE id={id};")
         rows = database.executeNonQueryRows(sql)
         return rows
 
