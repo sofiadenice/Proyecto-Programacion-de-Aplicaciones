@@ -3,6 +3,7 @@ from logic.tratamiento_logic import TratamientoLogic
 from logic.cita_logic import CitaLogic
 from logic.user_logic import UserLogic
 from logic.addAdmin_logic import AddAdminLogic
+from logic.dbInsertLogic import ValidarDatos
 from datetime import timedelta
 import requests
 import bcrypt
@@ -95,9 +96,17 @@ class DashboardRoutes:
                 hora = request.form["hora"]
                 user = session["login_user"]
 
-                citaDic = {"user":user, "correo":correo, "nombre":nombre, "apellido":apellido, "telefono":telefono, "motivo":motivo, "fecha":fecha, "hora":hora}
-                url2 = f"{templateFolder}pago.html"
-                return render_template(url2, citaDic=citaDic)
+                citaList = [user, correo, nombre, apellido, telefono, motivo]
+                validar = ValidarDatos(citaList)
+                result = validar.verificador()
+
+                if result:
+                    citaDic = {"user":user, "correo":correo, "nombre":nombre, "apellido":apellido, "telefono":telefono, "motivo":motivo, "fecha":fecha, "hora":hora}
+                    url2 = f"{templateFolder}pago.html"
+                    return render_template(url2, citaDic=citaDic)
+                else:
+                    flash("Los datos deben tener una longitud entre 3 y 45 caracteres")
+                    return redirect("cita")
         
         @app.route("/pago", methods=["GET", "POST"])
         def pago():
@@ -228,20 +237,31 @@ class DashboardRoutes:
                     
                         if passwordN == confirmPassword:
 
-                            # generar el salt , hacer el hash de la passw y insertar en bd
-                            useremail = session["email"]
-                            salt = bcrypt.gensalt(rounds=14)
-                            strSalt = salt.decode("utf-8")
-                            encPassword = passwordN.encode("utf-8")
-                            hashPassword = bcrypt.hashpw(encPassword, salt)
-                            strPassword = hashPassword.decode("utf-8")
-                            logicAdd =  AddAdminLogic()
-                            rows = logicAdd.updateUser(id, useremail, strPassword, strSalt)
-                            return redirect("micuenta")
-                            # return "register validRecaptcha uniqueUser Passw==ConfPassw post"
+                            lista = [passwordN, confirmPassword]
+                            validar = ValidarDatos(lista)
+                            result = validar.verificador()
+
+                            if result:
+                                # generar el salt , hacer el hash de la passw y insertar en bd
+                                useremail = session["email"]
+                                salt = bcrypt.gensalt(rounds=14)
+                                strSalt = salt.decode("utf-8")
+                                encPassword = passwordN.encode("utf-8")
+                                hashPassword = bcrypt.hashpw(encPassword, salt)
+                                strPassword = hashPassword.decode("utf-8")
+                                logicAdd =  AddAdminLogic()
+                                rows = logicAdd.updateUser(id, useremail, strPassword, strSalt)
+                                return redirect("micuenta")
+                                # return "register validRecaptcha uniqueUser Passw==ConfPassw post"
+
+                            else:
+                                flash("Los datos deben tener una longitud entre 3 y 45 caracteres")
+                                return redirect("micuenta")
+                            
                         else:
                             flash("Las contraseñas nuevas no coinciden")
                             return redirect("micuenta")
+
                     else:
                         flash("La contraseña actual no coincide")
                         return redirect("micuenta")

@@ -2,12 +2,12 @@
 
 {% if addAdminObj %}
 
-{% set type = 'Update' %}
+{% set type = 'update' %}
 {% set button = 'Update' %}
 
 {% else %}
 
-{% set type = 'New' %}
+{% set type = 'new' %}
 {% set button = 'Create' %}
 
 {% endif %}
@@ -74,7 +74,7 @@
 
 
             {% if addAdminObj %}
-            <input type="hidden" name="idshow" id="idshow" value="{{ addAdminObj['id'] }}">
+            <input type="hidden" name="idshow" id="idshow" value={{ addAdminObj['id'] }}>
             {% endif %}
 
             <input type="submit" class="btn btn-success" value="{{ button }}">

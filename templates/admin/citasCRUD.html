@@ -4,6 +4,23 @@
 
 {% block content %}
 
+{% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+    
+    {% for message in messages %}
+
+    <div class="alert alert-info alert-dismissible" style="position:absolute; top:70px; right:10px; font-size:20px;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" style="margin-top:6px;">&times;</a>  
+        <strong>Info!</strong> {{ message }}   
+    </div>
+
+    {% endfor %}
+
+    {% endif %}
+
+{% endwith %}
+
 <div class="container-fluid">
     <div class="container-fluid title-heading">
         <div class="container-h1"><div class="container-h1-h1"><h1>Registro&#160de&#160citas</h1></div></div>  
