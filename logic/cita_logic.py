@@ -55,19 +55,20 @@ class CitaLogic(PybaLogic):
             + f"`telefono` = '{telefono}', "
             + f"`motivo` = '{motivo}', "
             + f"`fecha` = '{fecha}', "
-            + f"`hora` = '{hora}', "
+            + f"`hora` = '{hora}',"
             + f"WHERE `id` = {id};")
         rows = database.executeNonQueryRows(sql)
         return rows
 
-    def update(self, id, motivo, fecha, hora):
+    def update(self, id, motivo, fecha, hora, estado):
         database = self.createDatabaseObj()
         sql = ("UPDATE `clidente`.`cita` SET "
             + f"`id` = {id}, "
             + f"`motivo` = '{motivo}', "
             + f"`fecha` = '{fecha}', "
-            + f"`hora` = '{hora}' "
-            + f"WHERE `id` = {id};")
+            + f"`hora` = '{hora}', "
+            + f"`estado` = '{estado}'"
+            + f" WHERE `id` = {id};")
         rows = database.executeNonQueryRows(sql)
         return rows
 

@@ -47,6 +47,15 @@
                     value="{% if citaObj %}{{ citaObj['hora'] }}{% endif %}">
             </div>
 
+            <div class="caja-inputs">
+                <label for="hora">Estado:</label>
+                <select name="estado" id="estado" class="cajaci-input">
+                    <option value="Agendada">Agendada</option>
+                    <option value="Finalizada">Finalizada</option>
+                    <option value="Cancelada">Cancelada</option>
+                </select>
+            </div>
+
 
             {% if citaObj %}
             <input type="hidden" name="id" id="id" value="{{ citaObj['id'] }}">

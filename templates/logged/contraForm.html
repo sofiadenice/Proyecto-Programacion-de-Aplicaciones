@@ -32,23 +32,22 @@
             <div class="form-group">
                 <label for="description">Nombre de Usuario</label>
                 <input type="text" class="form-control" id="user_name" name="user_name"
-                    placeholder="Ingresar el usuario" value= {{ session["login_user"]}} readonly >
+                    placeholder="Ingresar el usuario" value= "{{ session["login_user"] }}" readonly >
             </div>
 
             <div class="form-group">
                 <label for="value">Escriba su contraseña actual</label>
-                <input type="text" class="form-control" id="contrasenaVieja" name="contrasenaVieja" placeholder="Ingresa el contraseña actual">
+                <input type="password" class="form-control" id="contrasenaVieja" name="contrasenaVieja" placeholder="Ingresa el contraseña actual">
             </div>
 
             <div class="form-group">
                 <label for="value">Escriba su nueva contraseña:</label>
-                <input type="text" class="form-control" id="contrasenaNueva" name="contrasenaNueva" placeholder="Ingrese la contraseña nueva">
+                <input type="password" class="form-control" id="contrasenaNueva" name="contrasenaNueva" placeholder="Ingrese la contraseña nueva">
             </div>
             
             <div class="form-group">
                 <label for="value">Verifique su contraseña:</label>
-                <input type="text" class="form-control" id="confirmarContra" name="confirmarContra" placeholder="Ingrese la verificacion de contraseña nueva"
-                    value="{% if addAdminObj %}{{ addAdminObj['salt'] }}{% endif %}">
+                <input type="password" class="form-control" id="confirmarContra" name="confirmarContra" placeholder="Ingrese la verificacion de contraseña nueva">
             </div>
 
             <input type="submit" class="btn btn-success" value="Update">

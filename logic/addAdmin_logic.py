@@ -11,6 +11,12 @@ class AddAdminLogic(PybaLogic):
         result = database.executeQuery(sql)
         return result
 
+    def selectAllAddCliente(self):
+        database = self.createDatabaseObj()
+        sql = "SELECT * FROM clidente.user WHERE role = 'cliente';"
+        result = database.executeQuery(sql)
+        return result
+
     def getAdminById(self, id):
         database = self.createDatabaseObj()
         sql = f"SELECT * FROM clidente.user WHERE id={id};"

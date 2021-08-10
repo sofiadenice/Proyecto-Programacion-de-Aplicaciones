@@ -52,8 +52,9 @@ class AdminRoutes:
                     motivo = request.form["motivo"]
                     fecha = request.form["fecha"]
                     hora = request.form["hora"]
+                    estado = request.form["estado"]
 
-                    rows = logic.update(id, motivo, fecha, hora)
+                    rows = logic.update(id, motivo, fecha, hora, estado)
 
                 """
                 elif request.args.get("type") == "new":
@@ -219,3 +220,63 @@ class AdminRoutes:
                 id = request.form["id"]
                 rows = logic.deleteUser(id)
                 return redirect("addAdminCRUD")
+
+
+        @app.route("/addClienteCRUD")
+        def addClienteCRUD():
+            logic = AddAdminLogic()
+            addClienteList = logic.selectAllAddCliente()
+            url = f"{templateFolder}addClienteCRUD.html"
+            return render_template(url, addClienteList=addClienteList)
+
+        @app.route("/addClienteForm", methods=["GET", "POST"])
+        def addClienteForm():
+            if request.method == "GET":
+                currentAddCliente = None
+                url = f"{templateFolder}addClienteForm.html"
+                if request.args.get("type") == "update":
+                    logic = AddAdminLogic()
+                    id = int(request.args.get("id"))
+                    currentAddCliente = logic.getAdminById(id)
+                return render_template(url, addClienteObj=currentAddCliente)
+
+            elif request.method == "POST":
+                if request.args.get("type") == "update":
+                    logicAdd = AddAdminLogic()
+
+                    id = request.form["idshow"]
+                    user_name = request.form["user_name"]
+                    user_email = request.form["user_email"]
+                    password = request.form["password"]
+                    confPassword = request.form["confpassword"]
+
+                    # verificar que el password sea igual al confirm password
+                    password = request.form["password"]
+                    confirmPassword = request.form["confpassword"]
+                    if password == confirmPassword:
+
+                        # generar el salt , hacer el hash de la passw y insertar en bd
+                        useremail = request.form["user_email"]
+                        salt = bcrypt.gensalt(rounds=14)
+                        strSalt = salt.decode("utf-8")
+                        encPassword = password.encode("utf-8")
+                        hashPassword = bcrypt.hashpw(encPassword, salt)
+                        strPassword = hashPassword.decode("utf-8")
+                        rows = logicAdd.updateUser(id, useremail, strPassword, strSalt)
+                        return redirect("addClienteCRUD")
+                        # return "register validRecaptcha uniqueUser Passw==ConfPassw post"
+
+                    else:
+                        flash("No se ha podido actualizar el usuario")
+                        return redirect("addClienteCRUD")
+
+                flash("No se ha podido ingresar el nuevo usuario")
+                return redirect("addClienteForm")
+
+        @app.route("/addClienteDELETE", methods=["POST"])
+        def addClienteDELETE():
+            if request.method == "POST":
+                logic = AddAdminLogic()
+                id = request.form["id"]
+                rows = logic.deleteUser(id)
+                return redirect("addClienteCRUD")

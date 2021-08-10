@@ -1,6 +1,6 @@
 {% extends '/admin/base.html' %}
 
-{% if addAdminObj %}
+{% if addClienteObj %}
 
 {% set type = 'update' %}
 {% set button = 'Update' %}
@@ -12,7 +12,7 @@
 
 {% endif %}
 
-{% block title %}addAdmin{{ type }}{% endblock title %}
+{% block title %}addCliente{{ type }}{% endblock title %}
 
 {% block content %}
 
@@ -35,28 +35,28 @@
 
 <div class="container">
     <div class="title-heading">
-        <div class="container-h1"><div class="container-h1-h1"><h1>addAdmin&#160{{ type }}</h1></div></div>
+        <div class="container-h1"><div class="container-h1-h1"><h1>Modificar&#160cliente</h1></div></div>
     </div>
     
     <div class="holder">
-        <form action="{{ url_for('addAdminForm', type=type) }}" method="post">
-            {% if addAdminObj %}
+        <form action="{{ url_for('addClienteForm', type=type) }}" method="post">
+            {% if addClienteObj %}
             <div class="form-group">
                 <label for="idshow">id:</label>
-                <input type="text" class="form-control" id="idshow" name="idshow" value="{{ addAdminObj ['id'] }}" readonly>
+                <input type="text" class="form-control" id="idshow" name="idshow" value="{{ addClienteObj ['id'] }}" readonly>
             </div>
             {% endif %}
             
             <div class="form-group">
                 <label for="description">Nombre de Usuario</label>
                 <input type="text" class="form-control" id="user_name" name="user_name"
-                    placeholder="Ingresar el usuario" value= {% if addAdminObj %} "{{ addAdminObj['user_name'] }}" readonly  {% endif %} >
+                    placeholder="Ingresar el usuario" value= {% if addClienteObj %} "{{ addClienteObj['user_name'] }}" readonly  {% endif %} >
             </div>
 
             <div class="form-group">
                 <label for="value">Correo</label>
                 <input type="text" class="form-control" id="user_email" name="user_email" placeholder="Ingresa el correo"
-                    value="{% if addAdminObj %} {{ addAdminObj['user_email'] }} {% endif %}" >
+                    value={% if addClienteObj %}"{{addClienteObj['user_email'] }}"{% endif %} >
             </div>
 
             <div class="form-group">
@@ -70,8 +70,8 @@
             </div>
 
 
-            {% if addAdminObj %}
-            <input type="hidden" name="idshow" id="idshow" value="{{ addAdminObj['id'] }}">
+            {% if addClienteObj %}
+            <input type="hidden" name="idshow" id="idshow" value="{{ addClienteObj['id'] }}">
             {% endif %}
 
             <input type="submit" class="btn btn-success" value="{{ button }}">
