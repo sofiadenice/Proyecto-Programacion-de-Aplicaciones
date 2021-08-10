@@ -26,6 +26,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 
+
 /*BARRA DE NAVEGACIÓN*/
 * {
     box-sizing: border-box;
@@ -311,16 +312,9 @@ SALUDO AL USER
 
 
 
+
+
 /*FORMATO DE H1 Y H2*/
-
-
-/** h1{
-    margin: auto;
-    font-size: 40px;
-    color: #00AEBA;
-    text-align: center;
-    padding: 30px;
-}*/
 
 .container-h1{
     margin: auto;
@@ -397,9 +391,6 @@ h3 {
   text-align: center;
   color: #0d2042;
   margin: 15px;
-  /*background: -webkit-linear-gradient(60deg, #00AEBA, #3ab31b, #fdbb20);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;*/
 }
 
 .line{
@@ -407,7 +398,6 @@ h3 {
     align-items: center;
     max-width:180px;
     height : 5px;
-    /*margin : 0 5px;*/
     background: -webkit-linear-gradient(60deg, #00AEBA, #3ab31b, #fdbb20);
     -webkit-text-fill-color: transparent;
 }
@@ -458,15 +448,6 @@ h3 {
     padding-bottom: 10px;
 }
 
-/*
-.inicio-promos-secciones{
-    display: flex;
-}
-
-.inicio-promos-secciones section {
-    flex: 1;
-    text-align:center;
-}*/
 .promociones-right {
     position: relative;
     display: flex;
@@ -768,7 +749,6 @@ h3 {
 
 
 
-
 /* REGISTRO Y LOGIN */
 
 .position-caja {
@@ -937,18 +917,7 @@ h3 {
 .caja-inputs h2{
     color:#00AEBA;
 }
-/*
-.caja-inputs table{
-    color: #69572b;
-    background-color: #fdbb20;
-    border-radius: 0px;
-    text-align:center;
-    max-width: 100%;
-    border-style: inset;
-    border: "1";
-    position: relative;
-    margin: auto;
-}*/
+
 
 
 .caja-cita .caja-titulo{
@@ -998,18 +967,11 @@ h3 {
     box-shadow: 0px 0px 20px 0px black;
 }
 
-/*
-.caja-inputs table{
-    color: #69572b;
-    background-color: #fdbb20;
-    border-radius: 0px;
-    text-align:center;
-    max-width: 100%;
-    border-style: inset;
-    border: "1";
-    position: relative;
-    margin: auto;
-}*/
+
+
+
+
+
 
 /* FORMATO DE TABLAS*/
 
