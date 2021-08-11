@@ -102,7 +102,7 @@ class AdminRoutes:
                     descripcion = request.form["descripcion"]
                     imagen = request.form["imagen"]
 
-                    lista = [nombre]
+                    lista = [nombre, "abcd"]
                     validar = ValidarDatos(lista)
                     result = validar.verificador()
 
